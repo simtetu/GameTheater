@@ -49,6 +49,7 @@ public class Play {
     }
 
     /**
+     * Adds a scene to the scene list.
      * @param resourceFileName The xml file name.
      */
     public final void addScene(String resourceFileName) {
