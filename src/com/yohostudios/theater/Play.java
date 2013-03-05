@@ -29,7 +29,7 @@ public class Play {
     private boolean sceneChangeNeeded;
     /** List of Scenes. */
     private List<Scene> scenes = new ArrayList<Scene>();
-    /** */
+    /** The hud portion of the screen. */
     private Scene hud;
     /** */
     private Actor touchedActor;
@@ -37,7 +37,7 @@ public class Play {
     private Actor heldActor;
     /** */
     private FadeFilter fadeFilter;
-    /** The text font*/
+    /** The text font. */
     private Font font;
 
     /**
@@ -74,7 +74,7 @@ public class Play {
     }
 
     /**
-     * @param action 
+     * @param action
      */
     public void handleXMLObjectAction(Action action) {
         // TODO implement this
@@ -218,7 +218,7 @@ public class Play {
         return fadeFilter;
     }
 
-    /** 
+    /**
      * @param fadeFilter taint or change Fade Filter.
      */
     public void setFadeFilter(FadeFilter fadeFilter) {
@@ -234,7 +234,7 @@ public class Play {
 
     /**
      * @param font taint or change Font.
-     */ 
+     */
     public void setFont(Font font) {
         this.font = font;
     }
@@ -282,7 +282,7 @@ public class Play {
     }
 
     /**
-     * @return 
+     * @return
      */
     public boolean isSceneChangeNeeded() {
         return sceneChangeNeeded;
