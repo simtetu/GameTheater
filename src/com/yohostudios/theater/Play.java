@@ -35,7 +35,7 @@ public class Play {
     private Actor touchedActor;
     /** Held actor. */
     private Actor heldActor;
-    /** */
+    /** The fade filter. */
     private FadeFilter fadeFilter;
     /** The text font. */
     private Font font;
