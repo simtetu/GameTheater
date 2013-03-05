@@ -33,7 +33,7 @@ public class Play {
     private Scene hud;
     /** The touched actor. */
     private Actor touchedActor;
-    /** */
+    /** Held actor. */
     private Actor heldActor;
     /** */
     private FadeFilter fadeFilter;
