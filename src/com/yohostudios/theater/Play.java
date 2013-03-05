@@ -31,7 +31,7 @@ public class Play {
     private List<Scene> scenes = new ArrayList<Scene>();
     /** The hud portion of the screen. */
     private Scene hud;
-    /** */
+    /** The touched actor. */
     private Actor touchedActor;
     /** */
     private Actor heldActor;
