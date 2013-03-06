@@ -174,11 +174,11 @@ public abstract class XMLObject {
     public static final boolean compare(final Object firstValue,
             final Operator operator, final Object secondValue) {
 
-        // if we're dealing with strings that contain non-numbers, use
+        // if we're dealing with strings that are not numeric, use
         // String.compareTo.
         if (firstValue instanceof String && secondValue instanceof String
-                && StringUtils.hasLettersOrNonNumbers((String) firstValue)
-                && StringUtils.hasLettersOrNonNumbers((String) secondValue)) {
+                && !StringUtils.isNumeric((String) firstValue)
+                && !StringUtils.isNumeric((String) secondValue)) {
 
             String firstString = (String) firstValue;
             String secondString = (String) secondValue;
