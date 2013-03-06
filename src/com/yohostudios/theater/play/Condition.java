@@ -10,7 +10,9 @@ import com.yohostudios.theater.util.Operator;
  */
 public class Condition extends XMLObject {
 
+    /** */
     private String targetObjectId;
+    /** */
     private String targetObjectType;
     /** name of the attribute to compare. */
     private String paramName;

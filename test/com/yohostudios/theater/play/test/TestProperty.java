@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.yohostudios.theater.play.test;
 
 import static org.junit.Assert.fail;

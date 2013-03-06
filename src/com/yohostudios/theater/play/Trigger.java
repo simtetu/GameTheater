@@ -11,9 +11,13 @@ import com.yohostudios.theater.util.Timer;
  */
 public class Trigger extends XMLObject {
 
+    /** */
     private String type;
+    /** */
     private String params;
+    /** */
     private List<Action> actions;
+    /** */
     private Timer timer;
 
     /*

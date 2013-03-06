@@ -8,9 +8,13 @@ import com.yohostudios.theater.XMLObject;
  */
 public class Sound extends XMLObject {
 
+    /** */
     private float volume;
+    /** */
     private float pitch;
+    /** */
     private int resourceId;
+    /** */
     private boolean looping;
 
     /**

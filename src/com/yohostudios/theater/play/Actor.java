@@ -20,35 +20,62 @@ import com.yohostudios.theater.play.script.Text;
  */
 public class Actor extends XMLObject {
 
+    /** */
     private int currentSprite;
+    /** */
     private int x;
+    /** */
     private int y;
+    /** */
     private int z;
+    /** */
     private int width;
+    /** */
     private int height;
+    /** */
     private int offsetAreaX;
+    /** */
     private int offsetAreaY;
+    /** */
     private int offsetAreaW;
+    /** */
     private int offsetAreaH;
-    private int currentFrame; // frame in animation to display.
-    private int sequenceIndex; // position index in animation sequence vector.
-    private int animFrameDelay; // delay between frames.
-    private int animDelayCounter; // counter for the delay.
-    private int stopIndex; // index to stop at, in the animation sequence.
-    private boolean animated; // is the sprite currently animated.
-    private boolean loopAnimation; // is the animation looping.
-    private boolean visible; // true if the actor is visible, false if not.
-    private boolean talking; // true if Actor should show a dialogue, false if
-                             // not.
-    private boolean takeable; // can we pickup this object with the mouse?
-    private boolean taken; // is this Actor currently held ?
-    private long currentDialogueID; // the ID of the currently shown dialogue
-    private Font dialogueFont; // font used for dialogue
-    private List<Sprite> sprites; // sprites associated with the actor
-    private List<Sound> sounds; // sounds associated with the actor
-    private List<Trigger> triggers; // triggers associated with the actor
-    private List<Dialogue> dialogues; // dialogues associated with the actor
-    private List<Text> texts; // text written on the actor
+    /** frame in animation to display. */
+    private int currentFrame; 
+    /** position index in animation sequence vector. */
+    private int sequenceIndex; 
+    /** delay between frames. */
+    private int animFrameDelay; 
+    /** counter for the delay. */
+    private int animDelayCounter;
+    /** index to stop at, in the animation sequence. */
+    private int stopIndex; 
+    /** is the sprite currently animated. */
+    private boolean animated; 
+    /** is the animation looping. */
+    private boolean loopAnimation; 
+    /** true if the actor is visible, false if not. */
+    private boolean visible; 
+    /** true if Actor should show a dialogue, false if not.*/
+    private boolean talking;  
+    /** can we pickup this object with the mouse? */
+    private boolean takeable; 
+    /** is this Actor currently held ?*/
+    private boolean taken; 
+    /** the ID of the currently shown dialogue. */
+    private long currentDialogueID; 
+    /** font used for dialogue. */
+    private Font dialogueFont; 
+    /** sprites associated with the actor. */
+    private List<Sprite> sprites; 
+    /** sounds associated with the actor. */
+    private List<Sound> sounds; 
+    /** triggers associated with the actor. */
+    private List<Trigger> triggers; 
+    /** dialogues associated with the actor. */
+    private List<Dialogue> dialogues; 
+    /** text written on the actor. */
+    private List<Text> texts; 
 
     /**
      * Default constructor.

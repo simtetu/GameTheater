@@ -10,8 +10,11 @@ import com.yohostudios.theater.XMLObject;
  */
 public class Dialogue extends XMLObject {
 
-    private List<Sentence> sentences; // sentences associated with a dialogue
+    /** sentences associated with a dialogue. */
+    private List<Sentence> sentences; 
+    /** */
     private long nextDialogueId;
+    /** */
     private int spokenTime;
 
     /**

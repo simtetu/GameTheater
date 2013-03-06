@@ -11,10 +11,15 @@ import com.yohostudios.theater.XMLObject;
  */
 public class Sentence extends XMLObject {
 
+    /** */
     private String sentence;
+    /** */
     private int totalChars;
+    /** */
     private int amountShown;
+    /** */
     private int delay;
+    /** */
     private int counter;
 
     /**

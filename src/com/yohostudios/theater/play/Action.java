@@ -17,11 +17,17 @@ public class Action extends XMLObject {
 
     /** */
     private List<String> types;
-    private List<String> targetObjectIds; // ID of XMLObject targeted
-    private List<String> targetObjectTypes; // Type of XMLObject targeted
+    /** ID of XMLObject targeted. */
+    private List<String> targetObjectIds;
+    /** Type of XMLObject targeted. */
+    private List<String> targetObjectTypes;
+    /** */
     private List<String> paramNames;
+    /** */
     private List<String> paramValues;
+    /** */
     private List<Operator> paramOperators;
+    /** */
     private List<Condition> conditions;
 
     /**

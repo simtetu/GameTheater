@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.yohostudios.theater.play.test;
 
 import static org.junit.Assert.assertEquals;
@@ -21,6 +18,7 @@ import com.yohostudios.theater.util.Operator;
  */
 public class TestCondition {
 
+    /** */
     private Condition condition;
 
     /**

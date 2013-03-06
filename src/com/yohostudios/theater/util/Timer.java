@@ -8,14 +8,23 @@ package com.yohostudios.theater.util;
  */
 public class Timer {
 
+    /** */
 	private long startTime;
+	/** */
 	private long timeSpent;
+	/** */
 	private long duration;
+	/** */
 	private boolean ticking;
+	/** */
 	private boolean looping;
+	/** */
 	private boolean random;
+	/** */
 	private boolean ended;
+	/** */
 	private long minimumTime;
+	/** */
 	private long maximumTime;
 
 	/**

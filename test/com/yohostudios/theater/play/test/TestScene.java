@@ -18,6 +18,7 @@ import com.yohostudios.theater.play.Scene;
  */
 public class TestScene {
 
+    /** */
     private Scene scene;
 
     /**

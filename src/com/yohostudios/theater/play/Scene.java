@@ -17,10 +17,13 @@ import com.yohostudios.theater.util.FileUtils;
  */
 public class Scene extends XMLObject {
 
+    /** */
     private List<Actor> actors;
-
+    /** */
     private boolean visible;
+    /** */
     private boolean fadingIn;
+    /** */
     private boolean fadingOut;
 
     /**

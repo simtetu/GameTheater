@@ -9,14 +9,23 @@ import com.yohostudios.theater.graphics.Font;
  */
 public class Text extends XMLObject {
 
+    /** */
     private long fontResourceId;
+    /** */
     private int x;
+    /** */
     private int y;
+    /** */
     private int fontFrames;
+    /** */
     private int fontResourceWidth;
+    /** */
     private int fontResourceHeight;
+    /** */
     private String format;
+    /** */
     private String text;
+    /** */
     private Font font;
 
     /**
