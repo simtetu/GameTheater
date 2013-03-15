@@ -27,7 +27,10 @@ public class Sentence extends XMLObject {
      */
     public boolean completelyShown() {
         // is sentence completed?
-        return (totalChars == amountShown) ? true : false;
+        if (totalChars == amountShown) {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -139,7 +142,7 @@ public class Sentence extends XMLObject {
     }
 
     /**
-     * @return
+     * @return amountShown
      */
     public int getAmountShown() {
         return amountShown;

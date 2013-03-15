@@ -39,7 +39,8 @@ public class TestCondition {
      */
     @Test
     public final void testInitFromXML() throws XMLParsingException {
-        String xmlString = "<Condition id=\"1\" targetObjectId=\"1999\" targetObjectType=\"Actor\" paramName=\"currentFrame\" paramOperator=\"eq\" paramValue=\"36\"></Condition>";
+        String xmlString = "<Condition id=\"1\" targetObjectId=\"1999\" targetObjectType=\"Actor\""
+                + " paramName=\"currentFrame\" paramOperator=\"eq\" paramValue=\"36\"></Condition>";
         condition.initFromXML(xmlString);
         assertEquals(1L, condition.getId());
         assertEquals("1999", condition.getTargetObjectId());
@@ -57,7 +58,8 @@ public class TestCondition {
     public final void testUnsupportedOperatorException()
             throws XMLParsingException {
 
-        String xmlString = "<Condition id=\"1\" targetObjectId=\"1999\" targetObjectType=\"Actor\" paramName=\"currentFrame\" paramOperator=\"zz\" paramValue=\"36\"></Condition>";
+        String xmlString = "<Condition id=\"1\" targetObjectId=\"1999\" targetObjectType=\"Actor\""
+                + " paramName=\"currentFrame\" paramOperator=\"zz\" paramValue=\"36\"></Condition>";
 
         condition.initFromXML(xmlString);
 

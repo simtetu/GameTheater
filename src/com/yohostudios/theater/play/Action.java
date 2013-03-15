@@ -4,9 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.yohostudios.theater.XMLObject;
-import com.yohostudios.theater.exception.UnsupportedOperatorException;
 import com.yohostudios.theater.exception.XMLParsingException;
-import com.yohostudios.theater.exception.XMLTagNotFoundException;
 import com.yohostudios.theater.util.Operator;
 
 /**

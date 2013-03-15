@@ -41,7 +41,9 @@ public class TestAction {
     @Test
     public final void testInitFromXML() throws XMLParsingException {
 
-        String xmlString = "<Action id=\"1\" type=\"modifyAttribute,modifyAttribute,changeRoom\" targetObjectId=\"3001,3001,2000\" targetObjectType=\"Actor,Actor,Actor\" paramName=\"currentFrame,visible,room\" paramValue=\"0,true,1005\" paramOperator=\"+=,=,=\">";
+        String xmlString = "<Action id=\"1\" type=\"modifyAttribute,modifyAttribute,changeRoom\""
+                + " targetObjectId=\"3001,3001,2000\" targetObjectType=\"Actor,Actor,Actor\""
+                + " paramName=\"currentFrame,visible,room\" paramValue=\"0,true,1005\" paramOperator=\"+=,=,=\">";
         action.initFromXML(xmlString);
         assertEquals(1L, action.getId());
 

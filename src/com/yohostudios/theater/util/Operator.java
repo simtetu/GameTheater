@@ -3,7 +3,6 @@ package com.yohostudios.theater.util;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.sun.org.apache.xalan.internal.xsltc.runtime.Operators;
 import com.yohostudios.theater.exception.UnsupportedOperatorException;
 
 /**

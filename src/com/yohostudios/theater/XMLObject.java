@@ -2,9 +2,7 @@ package com.yohostudios.theater;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.StringTokenizer;
 
-import com.yohostudios.theater.exception.UnsupportedOperatorException;
 import com.yohostudios.theater.exception.XMLParsingException;
 import com.yohostudios.theater.exception.XMLTagNotFoundException;
 import com.yohostudios.theater.play.Property;
@@ -144,7 +142,6 @@ public abstract class XMLObject {
      * @param operator the comparison operator.
      * @param secondValue the second value.
      * @return true if the comparison is numerically true, otherwise false.
-     * @throws UnsupportedOperatorException if the operator is not supported.
      */
     public static final boolean compareNumerical(final double firstValue,
             final Operator operator, final double secondValue) {
@@ -169,7 +166,6 @@ public abstract class XMLObject {
      * @param operator the comparison operator.
      * @param secondValue the second value.
      * @return true if the comparison is numerically true, otherwise false.
-     * @throws UnsupportedOperatorException if the operator is not supported.
      */
     public static final boolean compare(final Object firstValue,
             final Operator operator, final Object secondValue) {

@@ -5,15 +5,12 @@ package com.yohostudios.theater.test;
 
 import static org.junit.Assert.assertTrue;
 
-import java.util.regex.Pattern;
-
 import org.junit.Before;
 import org.junit.Test;
 
 import com.yohostudios.theater.XMLObject;
 import com.yohostudios.theater.exception.UnsupportedOperatorException;
 import com.yohostudios.theater.util.Operator;
-import com.yohostudios.theater.util.StringUtils;
 
 /**
  * @author simon

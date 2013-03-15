@@ -9,8 +9,6 @@ import com.yohostudios.theater.XMLObject;
 public class Property extends XMLObject {
 
     /** */
-    private long id;
-    /** */
     private String name;
     /** */
     private String value;

@@ -11,7 +11,7 @@ import com.yohostudios.theater.XMLObject;
 public class Dialogue extends XMLObject {
 
     /** sentences associated with a dialogue. */
-    private List<Sentence> sentences; 
+    private List<Sentence> sentences;
     /** */
     private long nextDialogueId;
     /** */
@@ -21,7 +21,11 @@ public class Dialogue extends XMLObject {
      * @return
      */
     public boolean hasSentences() {
-        return (sentences.size() > 0) ? true : false;
+        
+        if (sentences.isEmpty()) {
+            return false;
+        }
+        return true;
     }
 
     /*

@@ -6,7 +6,6 @@ package com.yohostudios.theater.util;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
-import java.util.regex.Pattern;
 
 /**
  * @author simon
