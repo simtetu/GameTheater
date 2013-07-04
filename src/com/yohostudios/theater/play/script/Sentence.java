@@ -1,5 +1,7 @@
 package com.yohostudios.theater.play.script;
 
+import java.util.concurrent.Semaphore;
+
 import com.yohostudios.theater.XMLObject;
 
 /**
@@ -14,42 +16,37 @@ public class Sentence extends XMLObject {
     /** */
     private String sentence;
     /** */
-    private int totalChars;
-    /** */
-    private int amountShown;
+    private int charAmountShown;
+    /** The default increment is 1 character at a time. */
+    private int charAmountIncrement = 1;
     /** */
     private int delay;
-    /** */
-    private int counter;
 
     /**
-     * @return
+     * @return true if the sentence has been fully printed, otherwise false.
      */
     public boolean completelyShown() {
         // is sentence completed?
-        if (totalChars == amountShown) {
+        if (sentence.length() == charAmountShown) {
             return true;
         }
         return false;
     }
 
     /**
-     * @return
+     * Returns incrementally more of the sentence each time the method is
+     * called, up until the complete sentence is revealed.
+     * @return the current portion of the sentence driven by the charAmountShown
+     *         attribute of this class.
      */
     public String getIncrementalSentence() {
-        if (amountShown < totalChars)
-            amountShown++;
 
-        return new String(this.sentence.substring(0, amountShown));
+        if ((charAmountShown + charAmountIncrement) < sentence.length()) {
+            charAmountShown += charAmountIncrement;
+            return new String(this.sentence.substring(0, charAmountShown));
+        }
+        return this.sentence;
 
-    }
-
-    /**
-     * @param str
-     */
-    void initString(String str) {
-        this.sentence = str;
-        totalChars = (int) str.length();
     }
 
     /*
@@ -128,31 +125,17 @@ public class Sentence extends XMLObject {
     }
 
     /**
-     * @return
+     * @return charAmountShown
      */
-    public int getTotalChars() {
-        return totalChars;
+    public int getCharAmountShown() {
+        return charAmountShown;
     }
 
     /**
-     * @param totalChars
+     * @param charAmountShown
      */
-    public void setTotalChars(int totalChars) {
-        this.totalChars = totalChars;
-    }
-
-    /**
-     * @return amountShown
-     */
-    public int getAmountShown() {
-        return amountShown;
-    }
-
-    /**
-     * @param amountShown
-     */
-    public void setAmountShown(int amountShown) {
-        this.amountShown = amountShown;
+    public void setCharAmountShown(int charAmountShown) {
+        this.charAmountShown = charAmountShown;
     }
 
     /**
@@ -169,18 +152,12 @@ public class Sentence extends XMLObject {
         this.delay = delay;
     }
 
-    /**
-     * @return
-     */
-    public int getCounter() {
-        return counter;
+    public int getCharAmountIncrement() {
+        return charAmountIncrement;
     }
 
-    /**
-     * @param counter
-     */
-    public void setCounter(int counter) {
-        this.counter = counter;
+    public void setCharAmountIncrement(int charAmountIncrement) {
+        this.charAmountIncrement = charAmountIncrement;
     }
 
 }

@@ -3,10 +3,13 @@
  */
 package com.yohostudios.theater.play.script.test;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import com.yohostudios.theater.play.script.Sentence;
 
 /**
  * @author simon
@@ -14,11 +17,14 @@ import org.junit.Test;
  */
 public class TestSentence {
 
+    private Sentence sentence;
+
     /**
      * @throws java.lang.Exception
      */
     @Before
     public void setUp() throws Exception {
+        sentence = new Sentence();
     }
 
     /**
@@ -96,17 +102,27 @@ public class TestSentence {
      */
     @Test
     public final void testGetIncrementalSentence() {
-        fail("Not yet implemented"); // TODO
-    }
-
-    /**
-     * Test method for
-     * {@link com.yohostudios.theater.play.script.Sentence#initString(java.lang.String)}
-     * .
-     */
-    @Test
-    public final void testInitString() {
-        fail("Not yet implemented"); // TODO
+        
+        // Make sure each call of getIncrementalSentence shows more of the sentence.
+        sentence.setSentence("Hello");
+        assertEquals("H", sentence.getIncrementalSentence());
+        assertEquals("He", sentence.getIncrementalSentence());
+        assertEquals("Hel", sentence.getIncrementalSentence());
+        assertEquals("Hell", sentence.getIncrementalSentence());
+        assertEquals("Hello", sentence.getIncrementalSentence());
+        // Try to exceed the boundaries of the sentence 
+        assertEquals("Hello", sentence.getIncrementalSentence());
+        
+        // Test again with 3 chars at a time
+        sentence.setCharAmountShown(0);
+        sentence.setCharAmountIncrement(3);
+        assertEquals("Hel", sentence.getIncrementalSentence());
+        assertEquals("Hello", sentence.getIncrementalSentence());
+        
+        // Test to get all the sentence at once
+        sentence.setCharAmountShown(0);
+        sentence.setCharAmountIncrement(20);
+        assertEquals("Hello", sentence.getIncrementalSentence());
     }
 
 }
