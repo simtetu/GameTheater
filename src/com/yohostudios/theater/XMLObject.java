@@ -255,6 +255,7 @@ public abstract class XMLObject {
      * Find object of type T with the specified if from the specified list.
      * @param objects the list of objects of type T
      * @param id the id of the object we want to find in the list.
+     * @param <T> any XMLObject.
      * @return the object if any found, otherwise null.
      */
     public final <T extends XMLObject> T findXMLObjectById(
@@ -273,14 +274,15 @@ public abstract class XMLObject {
 
     /**
      * 
-     * @param xmlString
+     * @param xmlString the XML used to build an object.
+     * @throws XMLParsingException if the XML cannot be parsed correctly.
      */
     public abstract void initFromXML(String xmlString)
             throws XMLParsingException;
 
     /**
      * 
-     * @param attributeName
+     * @param attributeName the class attribute name
      * @param attributeValue
      */
     public abstract void modifyAttribute(String attributeName,
