@@ -75,7 +75,7 @@ public class Play {
     }
 
     /**
-     * @param action
+     * @param action the XMLObject action
      */
     public void handleXMLObjectAction(Action action) {
         // TODO implement this
@@ -110,7 +110,8 @@ public class Play {
     }
 
     /**
-     * @param canvas
+     * To prepare the stage to show the new canvas
+     * @param canvas the new canvas 
      */
     public void render(Canvas canvas) {
         // TODO implement this
@@ -126,8 +127,8 @@ public class Play {
     }
 
     /**
-     * @param paramValue
-     * @return
+     * @param paramValue the name of ParamValue
+     * @return the String of ParamValue
      */
     public String findParamValue(String paramValue) {
         // TODO implement this
@@ -160,7 +161,7 @@ public class Play {
     }
 
     /**
-     * @param actions
+     * @param actions List actions for Attributes On Targets
      */
     public void clearModifiedAttributesOnTargets(List<Action> actions) {
 
@@ -282,15 +283,15 @@ public class Play {
         this.nextSceneId = nextSceneId;
     }
 
-    /**
-     * @return
+    /** 
+     * @return access values Scene Change Needed
      */
     public boolean isSceneChangeNeeded() {
         return sceneChangeNeeded;
     }
 
     /**
-     * @param sceneChangeNeeded
+     * @param sceneChangeNeeded taint or change Scene Change Needed
      */
     public void setSceneChangeNeeded(boolean sceneChangeNeeded) {
         this.sceneChangeNeeded = sceneChangeNeeded;

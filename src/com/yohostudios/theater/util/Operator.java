@@ -49,7 +49,7 @@ public enum Operator {
     /**
      * @param value
      * @return
-     * @throws UnsupportedOperatorException
+     * @throws UnsupportedOperatorException if the operator is not supported.
      */
     public static final Operator getOperator(String value)
             throws UnsupportedOperatorException {
@@ -65,7 +65,7 @@ public enum Operator {
     /**
      * @param operatorValues
      * @return
-     * @throws UnsupportedOperatorException
+     * @throws UnsupportedOperatorException if the operator is not supported.
      */
     public static final List<Operator> getOperators(List<String> operatorValues)
             throws UnsupportedOperatorException {

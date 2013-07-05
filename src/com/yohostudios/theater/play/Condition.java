@@ -10,9 +10,9 @@ import com.yohostudios.theater.util.Operator;
  */
 public class Condition extends AbstractXMLObject {
 
-    /** */
+    /** ID of AbstractXMLObject targeted.*/
     private String targetObjectId;
-    /** */
+    /** Type of AbstractXMLObject targeted. */
     private String targetObjectType;
     /** name of the attribute to compare. */
     private String paramName;
@@ -84,70 +84,70 @@ public class Condition extends AbstractXMLObject {
     // ////////////////////////////////////////////////////////////////////////
 
     /**
-     * @return
+     * @return access values Target Object Id
      */
     public String getTargetObjectId() {
         return targetObjectId;
     }
 
     /**
-     * @param targetObjectId
+     * @param targetObjectId taint or change Target Object Id
      */
     public void setTargetObjectId(String targetObjectId) {
         this.targetObjectId = targetObjectId;
     }
 
     /**
-     * @return
+     * @return access values Target Object Type
      */
     public String getTargetObjectType() {
         return targetObjectType;
     }
 
     /**
-     * @param targetObjectType
+     * @param targetObjectType taint or change Target Object Type
      */
     public void setTargetObjectType(String targetObjectType) {
         this.targetObjectType = targetObjectType;
     }
 
     /**
-     * @return
+     * @return access values Param Name
      */
     public String getParamName() {
         return paramName;
     }
 
     /**
-     * @param paramName
+     * @param paramName taint or change Param Name
      */
     public void setParamName(String paramName) {
         this.paramName = paramName;
     }
 
     /**
-     * @return
+     * @return access values Param Operator
      */
     public Operator getParamOperator() {
         return paramOperator;
     }
 
     /**
-     * @param paramOperator
+     * @param paramOperator taint or change Param Operator
      */
     public void setParamOperator(Operator paramOperator) {
         this.paramOperator = paramOperator;
     }
 
     /**
-     * @return
+     * @return access values Param Value
      */
     public String getParamValue() {
         return paramValue;
     }
 
     /**
-     * @param paramValue
+     * @param paramValue taint or change Param Value
      */
     public void setParamValue(String paramValue) {
         this.paramValue = paramValue;

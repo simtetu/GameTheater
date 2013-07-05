@@ -27,6 +27,7 @@ public class TestAction {
 
     /**
      * @throws java.lang.Exception
+     * @throws Exception The String for the Exception
      */
     @Before
     public void setUp() throws Exception {

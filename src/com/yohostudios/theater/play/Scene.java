@@ -17,13 +17,13 @@ import com.yohostudios.theater.util.FileUtils;
  */
 public class Scene extends AbstractXMLObject {
 
-    /** */
+    /** List of Actor for the Scene*/
     private List<Actor> actors;
-    /** */
+    /** if the actor is visible or not*/
     private boolean visible;
-    /** */
+    /** If the Object is in the Scene*/
     private boolean fadingIn;
-    /** */
+    /** If the Object is out the Scene*/
     private boolean fadingOut;
 
     /**
@@ -48,6 +48,7 @@ public class Scene extends AbstractXMLObject {
 
     /**
      * Loads and parses an XML file to create a Scene.
+     * @param sceneId The current scene's id
      */
     private void loadScene(int sceneId) {
 
@@ -57,6 +58,7 @@ public class Scene extends AbstractXMLObject {
 
     /**
      * Draws actors in the room.
+     * @param canvas the new canvas
      */
     public void draw(Canvas canvas) {
         // TODO implement this
@@ -139,56 +141,56 @@ public class Scene extends AbstractXMLObject {
     // ////////////////////////////////////////////////////////////////////////
 
     /**
-     * @return
+     * @return access values List Actors
      */
     public List<Actor> getActors() {
         return actors;
     }
 
     /**
-     * @param actors
+     * @param actors taint or change List Actors
      */
     public void setActors(List<Actor> actors) {
         this.actors = actors;
     }
 
     /**
-     * @return
+     * @return access values If the Actors is Visible
      */
     public boolean isVisible() {
         return visible;
     }
 
     /**
-     * @param visible
+     * @param visible taint or change If the Actors is Visible
      */
     public void setVisible(boolean visible) {
         this.visible = visible;
     }
 
     /**
-     * @return
+     * @return access values If The Actors is in the Scene
      */
     public boolean isFadingIn() {
         return fadingIn;
     }
 
     /**
-     * @param fadingIn
+     * @param fadingIn taint or change If the Actors is in the Scene
      */
     public void setFadingIn(boolean fadingIn) {
         this.fadingIn = fadingIn;
     }
 
     /**
-     * @return
+     * @return access values If The Actors is out the Scene
      */
     public boolean isFadingOut() {
         return fadingOut;
     }
 
     /**
-     * @param fadingOut
+     * @param fadingOut taint or change If the Actors is out the Scene
      */
     public void setFadingOut(boolean fadingOut) {
         this.fadingOut = fadingOut;

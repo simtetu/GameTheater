@@ -24,6 +24,7 @@ public class TestScene {
 
     /**
      * @throws java.lang.Exception
+     * @throws Exception The String for the Exception
      */
     @Before
     public final void setUp() throws Exception {

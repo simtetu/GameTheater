@@ -217,9 +217,9 @@ public abstract class AbstractXMLObject {
 
     /**
      * 
-     * @param name
-     * @param operatorType
-     * @param comparisonValue
+     * @param name the string name of the Property
+     * @param operatorType the operator type of the Property
+     * @param comparisonValue the comparison value of the Property
      * @return true if the value of the attribute referred by attributeName
      *         compares with the comparisonValue, using the operatorType
      */
@@ -233,6 +233,11 @@ public abstract class AbstractXMLObject {
 
     }
 
+    /**
+     * @param propertyName
+     * @param propertyValue
+     * @param operator
+     */
     public final void modifyProperty(String propertyName, String propertyValue,
             Operator operator) {
 
@@ -281,22 +286,22 @@ public abstract class AbstractXMLObject {
     /**
      * 
      * @param attributeName the class attribute name
-     * @param attributeValue
+     * @param attributeValue the class attribute value
      */
     public abstract void modifyAttribute(String attributeName,
             String attributeValue);
 
     /**
      * 
-     * @param attributeName
-     * @return
+     * @param attributeName the class attribute name
+     * @return the class attribute name
      */
     public abstract String getAttribute(String attributeName);
 
     /**
      * 
-     * @param attributeName
-     * @param attributeValue
+     * @param attributeName the class attribute name
+     * @param attributeValue the class attribute value
      */
     public abstract void callMethod(String attributeName, String attributeValue);
 
@@ -310,28 +315,28 @@ public abstract class AbstractXMLObject {
     // ////////////////////////////////////////////////////////////////////////
 
     /**
-     * @return id
+     * @return access values identifier
      */
     public final long getId() {
         return id;
     }
 
     /**
-     * @param id
+     * @param id taint or change identifier
      */
     public final void setId(long id) {
         this.id = id;
     }
 
     /**
-     * @return xmlData
+     * @return xmlData access value Xml Data
      */
     public final String getXmlData() {
         return xmlData;
     }
 
     /**
-     * @param xMLData
+     * @param xMLData taint or change Xml Data.
      */
     public final void setXmlData(String xmlData) {
         this.xmlData = xmlData;

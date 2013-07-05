@@ -13,8 +13,7 @@ public class XMLTagNotFoundException extends XMLParsingException {
 	private static final long serialVersionUID = -6558675862877558157L;
 	
 	/**
-	 * Return String Exception found. 
-	 * @param string 
+	 * @param string Return String Exception found 
 	 */
 	public XMLTagNotFoundException(String string) {
 		super(string);

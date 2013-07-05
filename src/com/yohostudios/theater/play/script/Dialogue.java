@@ -14,9 +14,9 @@ public class Dialogue extends AbstractXMLObject {
 
     /** sentences associated with a dialogue. */
     private List<Sentence> sentences;
-    /** */
+    /** Id of Dialogue*/
     private long nextDialogueId;
-    /** */
+    /** Spoken Time of dialogue*/
     private int spokenTime;
 
     /*
@@ -86,42 +86,42 @@ public class Dialogue extends AbstractXMLObject {
     // ////////////////////////////////////////////////////////////////////////
 
     /**
-     * @return
+     * @return access values Sentences of Dialogue
      */
     public List<Sentence> getSentences() {
         return sentences;
     }
 
     /**
-     * @param sentences
+     * @param sentences taint or change the Sentences of dialogue
      */
     public void setSentences(List<Sentence> sentences) {
         this.sentences = sentences;
     }
 
     /**
-     * @return
+     * @return access values Next Dialogue Id
      */
     public long getNextDialogueId() {
         return nextDialogueId;
     }
 
     /**
-     * @param nextDialogueId
+     * @param nextDialogueId taint or change Next Dialogue Id
      */
     public void setNextDialogueId(long nextDialogueId) {
         this.nextDialogueId = nextDialogueId;
     }
 
     /**
-     * @return
+     * @return access values Spoken Time of Dialogue
      */
     public int getSpokenTime() {
         return spokenTime;
     }
 
     /**
-     * @param spokenTime
+     * @param spokenTime taint or change Spoken Time of Dialogue
      */
     public void setSpokenTime(int spokenTime) {
         this.spokenTime = spokenTime;

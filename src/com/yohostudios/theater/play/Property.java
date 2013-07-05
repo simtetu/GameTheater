@@ -8,9 +8,9 @@ import com.yohostudios.theater.AbstractXMLObject;
  */
 public class Property extends AbstractXMLObject {
 
-    /** */
+    /** ID of Property*/
     private String name;
-    /** */
+    /** Value of Property*/
     private String value;
 
     /*
@@ -75,28 +75,28 @@ public class Property extends AbstractXMLObject {
     // ////////////////////////////////////////////////////////////////////////
 
     /**
-     * @return
+     * @return access values Name of Property
      */
     public String getName() {
         return name;
     }
 
     /**
-     * @param name
+     * @param name taint or change Name of Property
      */
     public void setName(String name) {
         this.name = name;
     }
 
     /**
-     * @return
+     * @return access values Value of Property
      */
     public String getValue() {
         return value;
     }
 
     /**
-     * @param value
+     * @param value taint or change Value of Property
      */
     public void setValue(String value) {
         this.value = value;

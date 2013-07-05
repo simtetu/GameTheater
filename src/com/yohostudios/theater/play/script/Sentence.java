@@ -14,11 +14,11 @@ public class Sentence extends AbstractXMLObject {
 
     /** The content of the sentence*/
     private String content;
-    /** */
+    /** The Amount Sentence Shown*/
     private int charAmountShown;
     /** The default increment is 1 character at a time. */
     private int charAmountIncrement = 1;
-    /** */
+    /** Delay for the Sentence  Shown*/
     private int delay;
 
     /**
@@ -113,51 +113,57 @@ public class Sentence extends AbstractXMLObject {
     // ////////////////////////////////////////////////////////////////////////
 
     /**
-     * @return the content.
+     * @return access values the Content.
      */
     public String getContent() {
         return content;
     }
 
     /**
-     * @param content
+     * @param content taint or change Content
      */
     public void setContent(String content) {
         this.content = content;
     }
 
     /**
-     * @return charAmountShown
+     * @return access values Char Amount Shown
      */
     public int getCharAmountShown() {
         return charAmountShown;
     }
 
     /**
-     * @param charAmountShown
+     * @param charAmountShown taint or change Char Amount Shown
      */
     public void setCharAmountShown(int charAmountShown) {
         this.charAmountShown = charAmountShown;
     }
 
     /**
-     * @return
+     * @return access values Delay
      */
     public int getDelay() {
         return delay;
     }
 
     /**
-     * @param delay
+     * @param delay taint or change Delay
      */
     public void setDelay(int delay) {
         this.delay = delay;
     }
 
+    /**
+     * @return access values Char Amount Increment
+     */
     public int getCharAmountIncrement() {
         return charAmountIncrement;
     }
 
+    /**
+     * @param charAmountIncrement taint or change Char Amount Increment
+     */
     public void setCharAmountIncrement(int charAmountIncrement) {
         this.charAmountIncrement = charAmountIncrement;
     }

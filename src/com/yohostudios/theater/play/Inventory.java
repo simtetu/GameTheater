@@ -9,7 +9,7 @@ package com.yohostudios.theater.play;
 public class Inventory extends Scene {
 
 	/**
-	 * @param resourceFileName
+	 * @param resourceFileName The name of Resource File Name
 	 */
 	public Inventory(String resourceFileName) {
 		super(resourceFileName);

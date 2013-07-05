@@ -19,7 +19,7 @@ public class TestPlay {
 	private Play play;
 	
 	/**
-	 * @throws Exception
+	 * @throws Exception The String for the Exception
 	 */
 	@Before
 	public void setUp() throws Exception {

@@ -11,8 +11,8 @@ import java.util.Scanner;
 public class FileUtils {
 
 	/**
-	 * @param filename
-	 * @return
+	 * @param filename The File Name for Utils
+	 * @return The String of the File Name
 	 */
 	public static String getFileContentAsString(String filename) {
 

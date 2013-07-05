@@ -19,13 +19,13 @@ public class Action extends AbstractXMLObject {
     private List<String> targetObjectIds;
     /** Type of AbstractXMLObject targeted. */
     private List<String> targetObjectTypes;
-    /** */
+    /** name of the attribute to compare.*/
     private List<String> paramNames;
-    /** */
+    /** values of the attribute to compare.*/
     private List<String> paramValues;
-    /** */
+    /** operators of the attribute to compare.*/
     private List<Operator> paramOperators;
-    /** */
+    /** List of conditionds of AbstractXMLObject*/
     private List<Condition> conditions;
 
     /**
@@ -118,98 +118,98 @@ public class Action extends AbstractXMLObject {
     // ////////////////////////////////////////////////////////////////////////
 
     /**
-     * @return
+     * @return access values List of Conditions
      */
     public List<Condition> getConditions() {
         return conditions;
     }
 
     /**
-     * @param conditions
+     * @param conditions taint or change List of Conditions
      */
     public void setConditions(List<Condition> conditions) {
         this.conditions = conditions;
     }
 
     /**
-     * @return
+     * @return access values List of Types
      */
     public List<String> getTypes() {
         return types;
     }
 
     /**
-     * @param types
+     * @param types taint or change List of Types
      */
     public void setTypes(List<String> types) {
         this.types = types;
     }
 
     /**
-     * @return
+     * @return access values List of Target Object Ids
      */
     public List<String> getTargetObjectIds() {
         return targetObjectIds;
     }
 
     /**
-     * @param targetObjectIds
+     * @param targetObjectIds taint or change List Target Object Ids
      */
     public void setTargetObjectIds(List<String> targetObjectIds) {
         this.targetObjectIds = targetObjectIds;
     }
 
     /**
-     * @return
+     * @return access values List of Target Object Types
      */
     public List<String> getTargetObjectTypes() {
         return targetObjectTypes;
     }
 
     /**
-     * @param targetObjectTypes
+     * @param targetObjectTypes taint or change List Target Object Types
      */
     public void setTargetObjectTypes(List<String> targetObjectTypes) {
         this.targetObjectTypes = targetObjectTypes;
     }
 
     /**
-     * @return
+     * @return access values List Param Names
      */
     public List<String> getParamNames() {
         return paramNames;
     }
 
     /**
-     * @param paramNames
+     * @param paramNames taint or change List Param Names
      */
     public void setParamNames(List<String> paramNames) {
         this.paramNames = paramNames;
     }
 
     /**
-     * @return
+     * @return access values List Param Values
      */
     public List<String> getParamValues() {
         return paramValues;
     }
 
     /**
-     * @param paramValues
+     * @param paramValues taint or change List of Param Values
      */
     public void setParamValues(List<String> paramValues) {
         this.paramValues = paramValues;
     }
 
     /**
-     * @return
+     * @return access values List Param Operators
      */
     public List<Operator> getParamOperators() {
         return paramOperators;
     }
 
     /**
-     * @param paramOperators
+     * @param paramOperators taint or change List of Param Operators
      */
     public void setParamOperators(List<Operator> paramOperators) {
         this.paramOperators = paramOperators;
