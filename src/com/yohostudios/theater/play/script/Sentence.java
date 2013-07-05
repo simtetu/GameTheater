@@ -111,7 +111,7 @@ public class Sentence extends XMLObject {
     // ////////////////////////////////////////////////////////////////////////
 
     /**
-     * @return
+     * @return the sentence.
      */
     public String getSentence() {
         return sentence;
