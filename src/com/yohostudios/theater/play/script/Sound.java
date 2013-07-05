@@ -1,12 +1,12 @@
 package com.yohostudios.theater.play.script;
 
-import com.yohostudios.theater.XMLObject;
+import com.yohostudios.theater.AbstractXMLObject;
 
 /**
  * @author simon
  * 
  */
-public class Sound extends XMLObject {
+public class Sound extends AbstractXMLObject {
 
     /** */
     private float volume;
@@ -45,7 +45,7 @@ public class Sound extends XMLObject {
     /*
      * (non-Javadoc)
      * 
-     * @see com.yohostudios.theater.XMLObject#initFromXML(java.lang.String)
+     * @see com.yohostudios.theater.AbstractXMLObject#initFromXML(java.lang.String)
      */
     @Override
     public void initFromXML(String xmlString) {
@@ -56,7 +56,7 @@ public class Sound extends XMLObject {
     /*
      * (non-Javadoc)
      * 
-     * @see com.yohostudios.theater.XMLObject#modifyAttribute(java.lang.String,
+     * @see com.yohostudios.theater.AbstractXMLObject#modifyAttribute(java.lang.String,
      * java.lang.String)
      */
     @Override
@@ -68,7 +68,7 @@ public class Sound extends XMLObject {
     /*
      * (non-Javadoc)
      * 
-     * @see com.yohostudios.theater.XMLObject#getAttribute(java.lang.String)
+     * @see com.yohostudios.theater.AbstractXMLObject#getAttribute(java.lang.String)
      */
     @Override
     public String getAttribute(String attributeName) {
@@ -79,7 +79,7 @@ public class Sound extends XMLObject {
     /*
      * (non-Javadoc)
      * 
-     * @see com.yohostudios.theater.XMLObject#callMethod(java.lang.String,
+     * @see com.yohostudios.theater.AbstractXMLObject#callMethod(java.lang.String,
      * java.lang.String)
      */
     @Override
@@ -91,7 +91,7 @@ public class Sound extends XMLObject {
     /*
      * (non-Javadoc)
      * 
-     * @see com.yohostudios.theater.XMLObject#freeResources()
+     * @see com.yohostudios.theater.AbstractXMLObject#freeResources()
      */
     @Override
     public void freeResources() {

@@ -55,7 +55,7 @@ public class Play {
     public final void addScene(String resourceFileName) {
 
         Scene scene = new Scene(resourceFileName); // Create and load a scene.
-
+      
         currentSceneId = scene.getId();
         scenes.add(scene);
 
@@ -131,7 +131,7 @@ public class Play {
      */
     public String findParamValue(String paramValue) {
         // TODO implement this
-        return new String();
+        return "";
     }
 
     /**

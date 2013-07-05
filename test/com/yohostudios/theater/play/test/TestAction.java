@@ -23,6 +23,7 @@ import com.yohostudios.theater.util.Operator;
 public class TestAction {
 
     private Action action;
+    private String xmlString;
 
     /**
      * @throws java.lang.Exception
@@ -30,6 +31,11 @@ public class TestAction {
     @Before
     public void setUp() throws Exception {
         action = new Action();
+        xmlString = new StringBuilder()
+                .append("<Action id=\"1\" type=\"modifyAttribute,modifyAttribute,changeRoom\"")
+                .append(" targetObjectId=\"3001,3001,2000\" targetObjectType=\"Actor,Actor,Actor\"")
+                .append(" paramName=\"currentFrame,visible,room\" paramValue=\"0,true,1005\" paramOperator=\"+=,=,=\">")
+                .toString();
     }
 
     /**
@@ -41,9 +47,6 @@ public class TestAction {
     @Test
     public final void testInitFromXML() throws XMLParsingException {
 
-        String xmlString = "<Action id=\"1\" type=\"modifyAttribute,modifyAttribute,changeRoom\""
-                + " targetObjectId=\"3001,3001,2000\" targetObjectType=\"Actor,Actor,Actor\""
-                + " paramName=\"currentFrame,visible,room\" paramValue=\"0,true,1005\" paramOperator=\"+=,=,=\">";
         action.initFromXML(xmlString);
         assertEquals(1L, action.getId());
 

@@ -20,6 +20,7 @@ public class TestScene {
 
     /** */
     private Scene scene;
+    private String xmlString;
 
     /**
      * @throws java.lang.Exception
@@ -27,6 +28,21 @@ public class TestScene {
     @Before
     public final void setUp() throws Exception {
         scene = new Scene();
+        xmlString =  new StringBuilder()
+        .append("<Scene>")
+        .append("<Actor name=\"Widget\" id=\"1\" x=\"2\" y=\"3\" z=\"4\" width=\"5\" height=\"6\"")
+        .append(" currentFrame=\"7\" sequenceIndex=\"8\" animated=\"true\" animFrameDelay=\"9\"")
+        .append(" currentDialogueId=\"10\" talking=\"false\" animDelayCounter=\"11\"")
+        .append(" loopAnimation=\"false\" visible=\"false\">")
+        .append("<Sprite></Sprite>")
+        .append("<Sound></Sound>")
+        .append("<Sound></Sound>")
+        .append("<Text></Text>")
+        .append("<Dialogue id=\"1\" nextDialogueId=\"2\" spokenTime=\"5\"></Dialogue>")
+        .append("<Trigger></Trigger>")
+        .append("<Property></Property>")
+        .append("</Actor>")
+        .append("</Scene>").toString();
     }
 
     @Test
@@ -42,8 +58,8 @@ public class TestScene {
      */
     @Test
     public final void testInitFromXML() {
-        scene.initFromXML("<Scene><Actor></Actor><Actor></Actor></Scene>");
-        assertEquals(2, scene.getActors().size());
+        scene.initFromXML(xmlString);
+        assertEquals(1, scene.getActors().size());
     }
 
     /**
@@ -105,7 +121,7 @@ public class TestScene {
     }
 
     /**
-     * Test method for {@link com.yohostudios.theater.play.Scene#loadRoom(int)}.
+     * Test method for {@link com.yohostudios.theater.play.Scene#loadScene(int)}.
      */
     @Test
     public final void testLoadRoom() {

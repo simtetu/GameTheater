@@ -1,8 +1,7 @@
 package com.yohostudios.theater.play.script;
 
-import java.util.concurrent.Semaphore;
-
-import com.yohostudios.theater.XMLObject;
+import com.yohostudios.theater.AbstractXMLObject;
+import com.yohostudios.theater.exception.XMLParsingException;
 
 /**
  * Sentences are part of a Dialogue and can be printed on screen at any given
@@ -11,10 +10,10 @@ import com.yohostudios.theater.XMLObject;
  * @author simon
  * 
  */
-public class Sentence extends XMLObject {
+public class Sentence extends AbstractXMLObject {
 
-    /** */
-    private String sentence;
+    /** The content of the sentence*/
+    private String content;
     /** */
     private int charAmountShown;
     /** The default increment is 1 character at a time. */
@@ -23,11 +22,11 @@ public class Sentence extends XMLObject {
     private int delay;
 
     /**
-     * @return true if the sentence has been fully printed, otherwise false.
+     * @return true if the sentence should be completely shown, otherwise false.
      */
-    public boolean completelyShown() {
-        // is sentence completed?
-        if (sentence.length() == charAmountShown) {
+    public boolean isCompletelyShown() {
+        
+        if (charAmountShown == content.length()) {
             return true;
         }
         return false;
@@ -36,34 +35,37 @@ public class Sentence extends XMLObject {
     /**
      * Returns incrementally more of the sentence each time the method is
      * called, up until the complete sentence is revealed.
-     * @return the current portion of the sentence driven by the charAmountShown
-     *         attribute of this class.
+     * @return the portion of the sentence to be shown so far.
      */
     public String getIncrementalSentence() {
 
-        if ((charAmountShown + charAmountIncrement) < sentence.length()) {
+        if ((charAmountShown + charAmountIncrement) < content.length()) {
             charAmountShown += charAmountIncrement;
-            return new String(this.sentence.substring(0, charAmountShown));
+
+        } else {
+            charAmountShown = content.length();
         }
-        return this.sentence;
+
+        return new String(this.content.substring(0, charAmountShown));
 
     }
 
     /*
      * (non-Javadoc)
      * 
-     * @see com.yohostudios.theater.XMLObject#initFromXML(java.lang.String)
+     * @see com.yohostudios.theater.AbstractXMLObject#initFromXML(java.lang.String)
      */
     @Override
-    public void initFromXML(String xmlString) {
-        // TODO Auto-generated method stub
+    public void initFromXML(String xmlString) throws XMLParsingException {
+        setId(Long.parseLong(getValueFromParam(xmlString, "id")));
+        setContent(getValueFromParam(xmlString, "content"));
 
     }
 
     /*
      * (non-Javadoc)
      * 
-     * @see com.yohostudios.theater.XMLObject#modifyAttribute(java.lang.String,
+     * @see com.yohostudios.theater.AbstractXMLObject#modifyAttribute(java.lang.String,
      * java.lang.String)
      */
     @Override
@@ -75,7 +77,7 @@ public class Sentence extends XMLObject {
     /*
      * (non-Javadoc)
      * 
-     * @see com.yohostudios.theater.XMLObject#getAttribute(java.lang.String)
+     * @see com.yohostudios.theater.AbstractXMLObject#getAttribute(java.lang.String)
      */
     @Override
     public String getAttribute(String attributeName) {
@@ -86,7 +88,7 @@ public class Sentence extends XMLObject {
     /*
      * (non-Javadoc)
      * 
-     * @see com.yohostudios.theater.XMLObject#callMethod(java.lang.String,
+     * @see com.yohostudios.theater.AbstractXMLObject#callMethod(java.lang.String,
      * java.lang.String)
      */
     @Override
@@ -98,7 +100,7 @@ public class Sentence extends XMLObject {
     /*
      * (non-Javadoc)
      * 
-     * @see com.yohostudios.theater.XMLObject#freeResources()
+     * @see com.yohostudios.theater.AbstractXMLObject#freeResources()
      */
     @Override
     public void freeResources() {
@@ -111,17 +113,17 @@ public class Sentence extends XMLObject {
     // ////////////////////////////////////////////////////////////////////////
 
     /**
-     * @return the sentence.
+     * @return the content.
      */
-    public String getSentence() {
-        return sentence;
+    public String getContent() {
+        return content;
     }
 
     /**
-     * @param sentence
+     * @param content
      */
-    public void setSentence(String sentence) {
-        this.sentence = sentence;
+    public void setContent(String content) {
+        this.content = content;
     }
 
     /**

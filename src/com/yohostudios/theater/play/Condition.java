@@ -1,6 +1,6 @@
 package com.yohostudios.theater.play;
 
-import com.yohostudios.theater.XMLObject;
+import com.yohostudios.theater.AbstractXMLObject;
 import com.yohostudios.theater.exception.XMLParsingException;
 import com.yohostudios.theater.util.Operator;
 
@@ -8,7 +8,7 @@ import com.yohostudios.theater.util.Operator;
  * @author simon
  * 
  */
-public class Condition extends XMLObject {
+public class Condition extends AbstractXMLObject {
 
     /** */
     private String targetObjectId;
@@ -24,7 +24,7 @@ public class Condition extends XMLObject {
     /*
      * (non-Javadoc)
      * 
-     * @see com.yohostudios.theater.XMLObject#initFromXML(java.lang.String)
+     * @see com.yohostudios.theater.AbstractXMLObject#initFromXML(java.lang.String)
      */
     @Override
     public final void initFromXML(String xmlString) throws XMLParsingException {
@@ -48,7 +48,7 @@ public class Condition extends XMLObject {
     /*
      * (non-Javadoc)
      * 
-     * @see com.yohostudios.theater.XMLObject#getAttribute(java.lang.String)
+     * @see com.yohostudios.theater.AbstractXMLObject#getAttribute(java.lang.String)
      */
     @Override
     public String getAttribute(String attributeName) {
@@ -59,7 +59,7 @@ public class Condition extends XMLObject {
     /*
      * (non-Javadoc)
      * 
-     * @see com.yohostudios.theater.XMLObject#callMethod(java.lang.String,
+     * @see com.yohostudios.theater.AbstractXMLObject#callMethod(java.lang.String,
      * java.lang.String)
      */
     @Override
@@ -71,7 +71,7 @@ public class Condition extends XMLObject {
     /*
      * (non-Javadoc)
      * 
-     * @see com.yohostudios.theater.XMLObject#freeResources()
+     * @see com.yohostudios.theater.AbstractXMLObject#freeResources()
      */
     @Override
     public void freeResources() {

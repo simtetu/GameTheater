@@ -3,7 +3,7 @@ package com.yohostudios.theater.play;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.yohostudios.theater.XMLObject;
+import com.yohostudios.theater.AbstractXMLObject;
 import com.yohostudios.theater.exception.XMLParsingException;
 import com.yohostudios.theater.util.Operator;
 
@@ -11,13 +11,13 @@ import com.yohostudios.theater.util.Operator;
  * @author simon
  * 
  */
-public class Action extends XMLObject {
+public class Action extends AbstractXMLObject {
 
     /** */
     private List<String> types;
-    /** ID of XMLObject targeted. */
+    /** ID of AbstractXMLObject targeted. */
     private List<String> targetObjectIds;
-    /** Type of XMLObject targeted. */
+    /** Type of AbstractXMLObject targeted. */
     private List<String> targetObjectTypes;
     /** */
     private List<String> paramNames;
@@ -43,7 +43,7 @@ public class Action extends XMLObject {
     /*
      * (non-Javadoc)
      * 
-     * @see com.yohostudios.theater.XMLObject#initFromXML(java.lang.String)
+     * @see com.yohostudios.theater.AbstractXMLObject#initFromXML(java.lang.String)
      */
     @Override
     public void initFromXML(String xmlString) throws XMLParsingException {
@@ -70,7 +70,7 @@ public class Action extends XMLObject {
     /*
      * (non-Javadoc)
      * 
-     * @see com.yohostudios.theater.XMLObject#modifyAttribute(java.lang.String,
+     * @see com.yohostudios.theater.AbstractXMLObject#modifyAttribute(java.lang.String,
      * java.lang.String)
      */
     @Override
@@ -82,7 +82,7 @@ public class Action extends XMLObject {
     /*
      * (non-Javadoc)
      * 
-     * @see com.yohostudios.theater.XMLObject#getAttribute(java.lang.String)
+     * @see com.yohostudios.theater.AbstractXMLObject#getAttribute(java.lang.String)
      */
     @Override
     public String getAttribute(String attributeName) {
@@ -93,7 +93,7 @@ public class Action extends XMLObject {
     /*
      * (non-Javadoc)
      * 
-     * @see com.yohostudios.theater.XMLObject#callMethod(java.lang.String,
+     * @see com.yohostudios.theater.AbstractXMLObject#callMethod(java.lang.String,
      * java.lang.String)
      */
     @Override
@@ -105,7 +105,7 @@ public class Action extends XMLObject {
     /*
      * (non-Javadoc)
      * 
-     * @see com.yohostudios.theater.XMLObject#freeResources()
+     * @see com.yohostudios.theater.AbstractXMLObject#freeResources()
      */
     @Override
     public void freeResources() {

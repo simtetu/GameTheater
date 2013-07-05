@@ -1,14 +1,16 @@
 package com.yohostudios.theater.play.script;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import com.yohostudios.theater.XMLObject;
+import com.yohostudios.theater.AbstractXMLObject;
+import com.yohostudios.theater.exception.XMLParsingException;
 
 /**
  * @author simon
  * 
  */
-public class Dialogue extends XMLObject {
+public class Dialogue extends AbstractXMLObject {
 
     /** sentences associated with a dialogue. */
     private List<Sentence> sentences;
@@ -17,32 +19,26 @@ public class Dialogue extends XMLObject {
     /** */
     private int spokenTime;
 
-    /**
-     * @return
-     */
-    public boolean hasSentences() {
-        
-        if (sentences.isEmpty()) {
-            return false;
-        }
-        return true;
-    }
-
     /*
      * (non-Javadoc)
      * 
-     * @see com.yohostudios.theater.XMLObject#initFromXML(java.lang.String)
+     * @see com.yohostudios.theater.AbstractXMLObject#initFromXML(java.lang.String)
      */
     @Override
-    public void initFromXML(String xmlString) {
-        // TODO Auto-generated method stub
+    public void initFromXML(String xmlString) throws XMLParsingException {
+        
+        setId(Long.parseLong(getValueFromParam(xmlString, "id")));
+        setNextDialogueId(Long.parseLong(getValueFromParam(xmlString, "nextDialogueId")));
+        setSpokenTime(Integer.parseInt(getValueFromParam(xmlString, "spokenTime")));
+        sentences = new ArrayList<Sentence>();
+        fillListFromXML(sentences, Sentence.class, xmlString);
 
     }
 
     /*
      * (non-Javadoc)
      * 
-     * @see com.yohostudios.theater.XMLObject#modifyAttribute(java.lang.String,
+     * @see com.yohostudios.theater.AbstractXMLObject#modifyAttribute(java.lang.String,
      * java.lang.String)
      */
     @Override
@@ -54,7 +50,7 @@ public class Dialogue extends XMLObject {
     /*
      * (non-Javadoc)
      * 
-     * @see com.yohostudios.theater.XMLObject#getAttribute(java.lang.String)
+     * @see com.yohostudios.theater.AbstractXMLObject#getAttribute(java.lang.String)
      */
     @Override
     public String getAttribute(String attributeName) {
@@ -65,7 +61,7 @@ public class Dialogue extends XMLObject {
     /*
      * (non-Javadoc)
      * 
-     * @see com.yohostudios.theater.XMLObject#callMethod(java.lang.String,
+     * @see com.yohostudios.theater.AbstractXMLObject#callMethod(java.lang.String,
      * java.lang.String)
      */
     @Override
@@ -77,7 +73,7 @@ public class Dialogue extends XMLObject {
     /*
      * (non-Javadoc)
      * 
-     * @see com.yohostudios.theater.XMLObject#freeResources()
+     * @see com.yohostudios.theater.AbstractXMLObject#freeResources()
      */
     @Override
     public void freeResources() {

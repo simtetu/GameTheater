@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.yohostudios.theater.play.script.test;
+package com.yohostudios.theater.graphics.test;
 
 import static org.junit.Assert.fail;
 
@@ -23,7 +23,7 @@ public class TestText {
 
     /**
      * Test method for
-     * {@link com.yohostudios.theater.play.script.Text#initFromXML(java.lang.String)}
+     * {@link com.yohostudios.theater.graphics.Text#initFromXML(java.lang.String)}
      * .
      */
     @Test
@@ -33,7 +33,7 @@ public class TestText {
 
     /**
      * Test method for
-     * {@link com.yohostudios.theater.play.script.Text#modifyAttribute(java.lang.String, java.lang.String)}
+     * {@link com.yohostudios.theater.graphics.Text#modifyAttribute(java.lang.String, java.lang.String)}
      * .
      */
     @Test
@@ -43,7 +43,7 @@ public class TestText {
 
     /**
      * Test method for
-     * {@link com.yohostudios.theater.play.script.Text#getAttribute(java.lang.String)}
+     * {@link com.yohostudios.theater.graphics.Text#getAttribute(java.lang.String)}
      * .
      */
     @Test
@@ -53,7 +53,7 @@ public class TestText {
 
     /**
      * Test method for
-     * {@link com.yohostudios.theater.play.script.Text#callMethod(java.lang.String, java.lang.String)}
+     * {@link com.yohostudios.theater.graphics.Text#callMethod(java.lang.String, java.lang.String)}
      * .
      */
     @Test
@@ -63,7 +63,7 @@ public class TestText {
 
     /**
      * Test method for
-     * {@link com.yohostudios.theater.play.script.Text#compareProperty(java.lang.String, java.lang.String, java.lang.String)}
+     * {@link com.yohostudios.theater.graphics.Text#compareProperty(java.lang.String, java.lang.String, java.lang.String)}
      * .
      */
     @Test
@@ -73,7 +73,7 @@ public class TestText {
 
     /**
      * Test method for
-     * {@link com.yohostudios.theater.play.script.Text#freeResources()}.
+     * {@link com.yohostudios.theater.graphics.Text#freeResources()}.
      */
     @Test
     public final void testFreeResources() {

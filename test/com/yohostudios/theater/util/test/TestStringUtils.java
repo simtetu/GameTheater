@@ -21,21 +21,17 @@ public class TestStringUtils {
     @Test
     public final void testGetParamInParentheses() {
         
-        // Test with a value
         String result = StringUtils.getParamInParentheses("(300)");
-        assertEquals("300", result);
+        assertEquals("Testing with a value", "300", result);
         
-        // Test with missing parenthesis
         result = StringUtils.getParamInParentheses("(");
-        assertEquals("", result);
+        assertEquals("Testing with missing parenthesis", "", result);
         
-        // Test with an empty string
         result = StringUtils.getParamInParentheses("");
-        assertEquals("", result);
+        assertEquals("Testing with an empty string","", result);
         
-        // Test with null
         result = StringUtils.getParamInParentheses(null);
-        assertEquals("", result);
+        assertEquals("Testing with null", "", result);
 
     }
     
@@ -56,8 +52,12 @@ public class TestStringUtils {
         assertFalse(StringUtils.isNumeric("123456789a"));
         assertFalse(StringUtils.isNumeric(".200"));
         assertFalse(StringUtils.isNumeric("200..00"));
+        assertFalse(StringUtils.isNumeric("200."));
+        
         assertTrue(StringUtils.isNumeric("200.00"));
+        assertTrue(StringUtils.isNumeric("200.0"));
         assertTrue(StringUtils.isNumeric("200"));
+        assertTrue(StringUtils.isNumeric("0.2"));
     }
 
 }

@@ -20,6 +20,7 @@ public class TestCondition {
 
     /** */
     private Condition condition;
+    private String xmlString;
 
     /**
      * @throws java.lang.Exception
@@ -27,6 +28,10 @@ public class TestCondition {
     @Before
     public void setUp() throws Exception {
         condition = new Condition();
+        xmlString = new StringBuilder()
+                .append("<Condition id=\"1\" targetObjectId=\"1999\" targetObjectType=\"Actor\"")
+                .append(" paramName=\"currentFrame\" paramOperator=\"eq\" paramValue=\"36\"></Condition>")
+                .toString();
     }
 
     /**
@@ -39,8 +44,7 @@ public class TestCondition {
      */
     @Test
     public final void testInitFromXML() throws XMLParsingException {
-        String xmlString = "<Condition id=\"1\" targetObjectId=\"1999\" targetObjectType=\"Actor\""
-                + " paramName=\"currentFrame\" paramOperator=\"eq\" paramValue=\"36\"></Condition>";
+
         condition.initFromXML(xmlString);
         assertEquals(1L, condition.getId());
         assertEquals("1999", condition.getTargetObjectId());

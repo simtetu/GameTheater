@@ -25,11 +25,11 @@ public class FileUtils {
 
 			}
 		} catch (FileNotFoundException fnfe) {
-			System.out.println(fnfe.getMessage());
+		// TODO implement logging other than System.out.println(fnfe.getMessage());
 		} finally {
 			scanner.close();
 		}
-		System.out.println(text);
+		// TODO Implement logging instead of System.out.println(text);
 
 		return text.toString();
 	}

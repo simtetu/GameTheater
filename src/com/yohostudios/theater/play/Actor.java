@@ -4,12 +4,13 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-import com.yohostudios.theater.XMLObject;
+import com.yohostudios.theater.AbstractXMLObject;
+import com.yohostudios.theater.exception.XMLTagNotFoundException;
 import com.yohostudios.theater.graphics.Font;
 import com.yohostudios.theater.graphics.Sprite;
+import com.yohostudios.theater.graphics.Text;
 import com.yohostudios.theater.play.script.Dialogue;
 import com.yohostudios.theater.play.script.Sound;
-import com.yohostudios.theater.play.script.Text;
 
 /**
  * This class represents the Actor. In this case, any object that can interact
@@ -18,10 +19,12 @@ import com.yohostudios.theater.play.script.Text;
  * @author simon
  * 
  */
-public class Actor extends XMLObject {
+public class Actor extends AbstractXMLObject {
 
     /** */
     private int currentSprite;
+    /** */
+    private String name;
     /** */
     private int x;
     /** */
@@ -41,56 +44,47 @@ public class Actor extends XMLObject {
     /** */
     private int offsetAreaH;
     /** frame in animation to display. */
-    private int currentFrame; 
+    private int currentFrame;
     /** position index in animation sequence vector. */
-    private int sequenceIndex; 
+    private int sequenceIndex;
     /** delay between frames. */
-    private int animFrameDelay; 
+    private int animFrameDelay;
     /** counter for the delay. */
     private int animDelayCounter;
     /** index to stop at, in the animation sequence. */
-    private int stopIndex; 
+    private int stopIndex;
     /** is the sprite currently animated. */
-    private boolean animated; 
+    private boolean animated;
     /** is the animation looping. */
-    private boolean loopAnimation; 
+    private boolean loopAnimation;
     /** true if the actor is visible, false if not. */
-    private boolean visible; 
-    /** true if Actor should show a dialogue, false if not.*/
-    private boolean talking;  
+    private boolean visible;
+    /** true if Actor should show a dialogue, false if not. */
+    private boolean talking;
     /** can we pickup this object with the mouse? */
-    private boolean takeable; 
-    /** is this Actor currently held ?*/
-    private boolean taken; 
+    private boolean takeable;
+    /** is this Actor currently held ? */
+    private boolean taken;
     /** the ID of the currently shown dialogue. */
-    private long currentDialogueID; 
+    private long currentDialogueId;
     /** font used for dialogue. */
-    private Font dialogueFont; 
+    private Font dialogueFont;
     /** sprites associated with the actor. */
-    private List<Sprite> sprites; 
+    private List<Sprite> sprites;
     /** sounds associated with the actor. */
-    private List<Sound> sounds; 
+    private List<Sound> sounds;
     /** triggers associated with the actor. */
-    private List<Trigger> triggers; 
+    private List<Trigger> triggers;
     /** dialogues associated with the actor. */
-    private List<Dialogue> dialogues; 
+    private List<Dialogue> dialogues;
     /** text written on the actor. */
-    private List<Text> texts; 
+    private List<Text> texts;
 
     /**
      * Default constructor.
      */
     public Actor() {
 
-    }
-
-    /**
-     * Constructs a new Actor from an XML string.
-     * 
-     * @param xmlString the XML data used to create the Actor.
-     */
-    public Actor(String xmlString) {
-        initFromXML(xmlString);
     }
 
     /**
@@ -114,37 +108,70 @@ public class Actor extends XMLObject {
     /*
      * (non-Javadoc)
      * 
-     * @see com.yohostudios.theater.XMLObject#initFromXML(java.lang.String)
+     * @see com.yohostudios.theater.AbstractXMLObject#initFromXML(java.lang.String)
      */
     @Override
     public void initFromXML(String xmlString) {
 
         setXmlData(xmlString);
 
-        sprites = new ArrayList<Sprite>();
-        sounds = new ArrayList<Sound>();
-        texts = new ArrayList<Text>();
-        triggers = new ArrayList<Trigger>();
-        dialogues = new ArrayList<Dialogue>();
-        setProperties(new ArrayList<Property>());
+        try {
+            setId(Long.parseLong(getValueFromParam(xmlString, "id")));
 
-        // parse objects from XML and fill lists
-        fillListFromXML(sprites, Sprite.class, xmlString);
-        fillListFromXML(sounds, Sound.class, xmlString);
-        fillListFromXML(texts, Text.class, xmlString);
-        fillListFromXML(triggers, Trigger.class, xmlString);
-        fillListFromXML(dialogues, Dialogue.class, xmlString);
-        fillListFromXML(getProperties(), Property.class, xmlString);
+            setName(getValueFromParam(xmlString, "name"));
+            setX(Integer.parseInt(getValueFromParam(xmlString, "x")));
+            setY(Integer.parseInt(getValueFromParam(xmlString, "y")));
+            setZ(Integer.parseInt(getValueFromParam(xmlString, "z")));
+            setWidth(Integer.parseInt(getValueFromParam(xmlString, "width")));
+            setHeight(Integer.parseInt(getValueFromParam(xmlString, "height")));
+            setCurrentFrame(Integer.parseInt(getValueFromParam(xmlString,
+                    "currentFrame")));
+            setSequenceIndex(Integer.parseInt(getValueFromParam(xmlString,
+                    "sequenceIndex")));
+            setAnimated(Boolean.parseBoolean(getValueFromParam(xmlString,
+                    "animated")));
+            setAnimFrameDelay(Integer.parseInt(getValueFromParam(xmlString,
+                    "animFrameDelay")));
+            setCurrentDialogueId(Integer.parseInt(getValueFromParam(xmlString,
+                    "currentDialogueId")));
+            setTalking(Boolean.parseBoolean(getValueFromParam(xmlString,
+                    "talking")));
+            setAnimDelayCounter(Integer.parseInt(getValueFromParam(xmlString,
+                    "animDelayCounter")));
+            setLoopAnimation(Boolean.parseBoolean(getValueFromParam(xmlString,
+                    "loopAnimation")));
+            setVisible(Boolean.parseBoolean(getValueFromParam(xmlString,
+                    "visible")));
 
-        System.out.println(xmlString);
-        // TODO Auto-generated method stub
+            sprites = new ArrayList<Sprite>();
+            sounds = new ArrayList<Sound>();
+            texts = new ArrayList<Text>();
+            triggers = new ArrayList<Trigger>();
+            dialogues = new ArrayList<Dialogue>();
+            setProperties(new ArrayList<Property>());
+
+            // parse objects from XML and fill lists
+            fillListFromXML(sprites, Sprite.class, xmlString);
+            fillListFromXML(sounds, Sound.class, xmlString);
+            fillListFromXML(texts, Text.class, xmlString);
+            fillListFromXML(triggers, Trigger.class, xmlString);
+            fillListFromXML(dialogues, Dialogue.class, xmlString);
+            fillListFromXML(getProperties(), Property.class, xmlString);
+
+        } catch (NumberFormatException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (XMLTagNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
 
     }
 
     /*
      * (non-Javadoc)
      * 
-     * @see com.yohostudios.theater.XMLObject#modifyAttribute(java.lang.String,
+     * @see com.yohostudios.theater.AbstractXMLObject#modifyAttribute(java.lang.String,
      * java.lang.String)
      */
     @Override
@@ -156,7 +183,7 @@ public class Actor extends XMLObject {
     /*
      * (non-Javadoc)
      * 
-     * @see com.yohostudios.theater.XMLObject#getAttribute(java.lang.String)
+     * @see com.yohostudios.theater.AbstractXMLObject#getAttribute(java.lang.String)
      */
     @Override
     public String getAttribute(String attributeName) {
@@ -167,7 +194,7 @@ public class Actor extends XMLObject {
     /*
      * (non-Javadoc)
      * 
-     * @see com.yohostudios.theater.XMLObject#callMethod(java.lang.String,
+     * @see com.yohostudios.theater.AbstractXMLObject#callMethod(java.lang.String,
      * java.lang.String)
      */
     @Override
@@ -179,7 +206,7 @@ public class Actor extends XMLObject {
     /*
      * (non-Javadoc)
      * 
-     * @see com.yohostudios.theater.XMLObject#freeResources()
+     * @see com.yohostudios.theater.AbstractXMLObject#freeResources()
      */
     @Override
     public void freeResources() {
@@ -190,7 +217,7 @@ public class Actor extends XMLObject {
     // ////////////////////////////////////////////////////////////////////////
     // Getters and setters.
     // ////////////////////////////////////////////////////////////////////////
-    
+
     /**
      * @return
      */
@@ -558,15 +585,15 @@ public class Actor extends XMLObject {
     /**
      * @return
      */
-    public long getCurrentDialogueID() {
-        return currentDialogueID;
+    public long getCurrentDialogueId() {
+        return currentDialogueId;
     }
 
     /**
-     * @param currentDialogueID
+     * @param currentDialogueId
      */
-    public void setCurrentDialogueID(long currentDialogueID) {
-        this.currentDialogueID = currentDialogueID;
+    public void setCurrentDialogueId(long currentDialogueId) {
+        this.currentDialogueId = currentDialogueId;
     }
 
     /**
@@ -581,6 +608,14 @@ public class Actor extends XMLObject {
      */
     public void setDialogueFont(Font dialogueFont) {
         this.dialogueFont = dialogueFont;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
 }

@@ -6,7 +6,7 @@ import java.util.List;
 
 import android.graphics.Canvas;
 
-import com.yohostudios.theater.XMLObject;
+import com.yohostudios.theater.AbstractXMLObject;
 import com.yohostudios.theater.util.FileUtils;
 
 /**
@@ -15,7 +15,7 @@ import com.yohostudios.theater.util.FileUtils;
  * @author simon
  * 
  */
-public class Scene extends XMLObject {
+public class Scene extends AbstractXMLObject {
 
     /** */
     private List<Actor> actors;
@@ -35,26 +35,23 @@ public class Scene extends XMLObject {
     /**
      * Constructs a Scene using XML data from a resource file.
      * 
-     * @param resourceFile the filename of the resource file.
+     * @param resourceFileName the filename of the resource file.
      */
     public Scene(String resourceFileName) {
         setXmlData(FileUtils.getFileContentAsString(resourceFileName));
         actors = new ArrayList<Actor>();
         setId(1); // TODO implement
-        loadRoom(1); // TODO implement
+        actors = new ArrayList<Actor>();
+        fillListFromXML(actors, Actor.class, getXmlData());
+        
     }
 
     /**
      * Loads and parses an XML file to create a Scene.
      */
-    public void loadRoom(int roomId) {
+    private void loadScene(int sceneId) {
 
-        fillListFromXML(actors, Actor.class, getXmlData()); // parse objects
-                                                            // from XML and fill
-                                                            // vector
-        for (Actor actor : actors) {
-            System.out.println("*****ACTOR*****\n\n" + actor.getXmlData());
-        }
+        initFromXML(getXmlData());      
         // TODO implement this
     }
 
@@ -83,7 +80,7 @@ public class Scene extends XMLObject {
     /*
      * (non-Javadoc)
      * 
-     * @see com.yohostudios.theater.XMLObject#initFromXML(java.lang.String)
+     * @see com.yohostudios.theater.AbstractXMLObject#initFromXML(java.lang.String)
      */
     @Override
     public void initFromXML(String xmlString) {
@@ -94,7 +91,7 @@ public class Scene extends XMLObject {
     /*
      * (non-Javadoc)
      * 
-     * @see com.yohostudios.theater.XMLObject#modifyAttribute(java.lang.String,
+     * @see com.yohostudios.theater.AbstractXMLObject#modifyAttribute(java.lang.String,
      * java.lang.String)
      */
     @Override
@@ -106,7 +103,7 @@ public class Scene extends XMLObject {
     /*
      * (non-Javadoc)
      * 
-     * @see com.yohostudios.theater.XMLObject#getAttribute(java.lang.String)
+     * @see com.yohostudios.theater.AbstractXMLObject#getAttribute(java.lang.String)
      */
     @Override
     public String getAttribute(String attributeName) {
@@ -117,7 +114,7 @@ public class Scene extends XMLObject {
     /*
      * (non-Javadoc)
      * 
-     * @see com.yohostudios.theater.XMLObject#callMethod(java.lang.String,
+     * @see com.yohostudios.theater.AbstractXMLObject#callMethod(java.lang.String,
      * java.lang.String)
      */
     @Override
@@ -129,7 +126,7 @@ public class Scene extends XMLObject {
     /*
      * (non-Javadoc)
      * 
-     * @see com.yohostudios.theater.XMLObject#freeResources()
+     * @see com.yohostudios.theater.AbstractXMLObject#freeResources()
      */
     @Override
     public void freeResources() {

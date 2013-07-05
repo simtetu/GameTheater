@@ -34,31 +34,41 @@ public final class StringUtils {
      */
     public static boolean isNumeric(final String str) {
 
+        // Assume str is numeric.
+        boolean strIsNumeric = true;
+
+        // if str is empty, it's obviously not numeric.
         if (str == null || str.isEmpty()) {
-            return false;
-        }
+            strIsNumeric = false;
+        } else {
 
-        int periodPosition = -1;
-        int periodCount = 0;
+            int periodPosition = -1;
+            int periodCount = 0;
 
-        for (int i = 0; i < str.length(); i++) {
+            for (int i = 0; i < str.length(); i++) {
 
-            char c = str.charAt(i);
+                char currentChar = str.charAt(i);
 
-            if (c == '.') {
-                periodCount++;
-                periodPosition = i;
+                if (currentChar == '.') {
+                    periodCount++;
+                    periodPosition = i;
+                }
+                // if str is not numeric.
+                if (Character.isLetter(currentChar)
+                        && !Character.isDigit(currentChar)
+                        && currentChar != '.') {
+                    strIsNumeric = false;
+                    break;
+                }
             }
-            if (Character.isLetter(c) && !Character.isDigit(c) && c != '.') {
-                return false;
+            // if str is not a proper floating point number it's not numeric.
+            if (periodCount > 1 || periodPosition == 0
+                    || periodPosition == str.length() - 1) {
+                strIsNumeric = false;
             }
         }
 
-        if (periodCount == 0 || (periodCount == 1 && periodPosition > 0)) {
-            return true;
-        }
-
-        return false;
+        return strIsNumeric;
 
     }
 
@@ -67,12 +77,12 @@ public final class StringUtils {
      * @param propertyValue
      * @return a list of tokens.
      */
-    public static final List<String> tokenize(String str, String tokenizer) {
+    public static List<String> tokenize(String str, String token) {
 
         List<String> tokenList = new ArrayList<String>();
-        StringTokenizer st = new StringTokenizer(str, tokenizer);
-        while (st.hasMoreTokens()) {
-            tokenList.add(st.nextToken());
+        StringTokenizer tokenizer = new StringTokenizer(str, token);
+        while (tokenizer.hasMoreTokens()) {
+            tokenList.add(tokenizer.nextToken());
         }
         return tokenList;
     }
@@ -85,16 +95,14 @@ public final class StringUtils {
      */
     public static String getParamInParentheses(String str) {
 
-        String result = "";
-
         if (str != null && !str.isEmpty()) {
-            int startIndex = str.indexOf("(", 0);
-            int endIndex = str.indexOf(")", 0);
+            int startIndex = str.indexOf('(', 0);
+            int endIndex = str.indexOf(')', 0);
             if (startIndex >= 0 && endIndex > 0) {
-                result = str.substring(startIndex + 1, endIndex);
+                return new String(str.substring(startIndex + 1, endIndex));
             }
         }
-        return new String(result);
+        return "";
     }
 
 }

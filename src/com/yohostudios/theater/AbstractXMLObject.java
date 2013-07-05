@@ -14,20 +14,20 @@ import com.yohostudios.theater.util.StringUtils;
  * @author simon
  */
 
-public abstract class XMLObject {
+public abstract class AbstractXMLObject {
 
-    /** A unique XMLObject identifier. */
+    /** A unique AbstractXMLObject identifier. */
     private long id;
-    /** The XML data used that describes the XMLObject. **/
+    /** The XML data used that describes the AbstractXMLObject. **/
     private String xmlData;
     /**
-     * List of dynamic properties of an XMLObject. These are not the declared
+     * List of dynamic properties of an AbstractXMLObject. These are not the declared
      * members of a class, they are dynamic properties of an object that can be
      * added at runtime.
      **/
     private List<Property> properties;
     /**
-     * List of modified members of an XMLObject. An attribute is a declared
+     * List of modified members of an AbstractXMLObject. An attribute is a declared
      * member of a class which is part of the object at compile time.
      **/
     private final List<String> modifiedAttributes = new ArrayList<String>();
@@ -36,27 +36,24 @@ public abstract class XMLObject {
      * Parses an xml string, constructs objects that match the provided tag and
      * adds them to a List of type T.
      * @param <T> is the template for the class type.
-     * @param objectList a List of objects that extend XMLObject.
+     * @param objectList a List of objects that extend AbstractXMLObject.
      * @param object the Class of object which will be instantiated and added to
      *            the List.
      * @param xmlString the XML data
      */
-    public final <T extends XMLObject> void fillListFromXML(List<T> objectList,
+    public final <T extends AbstractXMLObject> void fillListFromXML(List<T> objectList,
             Class<T> object, String xmlString) {
 
         String tagName = object.getSimpleName();
         String token = "";
         String startTag = "<" + tagName;
         String endTag = "</" + tagName + ">";
-        int startIndex = 0;
-        int endIndex = 0;
+        int startIndex = xmlString.indexOf('<', 0);
+        int endIndex = xmlString.indexOf('>', 0);
 
         // while there are tags to read
         while (true) {
-
-            startIndex = xmlString.indexOf("<", startIndex); // find start of a
-                                                             // tag
-            endIndex = xmlString.indexOf(">", endIndex); // find end of tag
+         
             if (startIndex == -1) { // if there is no more tags to be read, exit
                 break;
             }
@@ -80,8 +77,8 @@ public abstract class XMLObject {
                 }
             }
 
-            startIndex = endIndex; // move forward to finding next tag
-            endIndex++;
+            startIndex = xmlString.indexOf('<', endIndex); // move forward to finding next tag
+            endIndex = xmlString.indexOf('>', ++endIndex); // find end of tag
         }
         modifiedAttributes.clear();
     }
@@ -112,7 +109,7 @@ public abstract class XMLObject {
         }
 
         startIndex = xmlString.indexOf(tag, 0) + tag.length();
-        endIndex = xmlString.indexOf("\"", startIndex);
+        endIndex = xmlString.indexOf('"', startIndex);
 
         return xmlString.substring(startIndex, endIndex);
     }
@@ -230,6 +227,7 @@ public abstract class XMLObject {
             String comparisonValue) {
 
         // for (Pro)
+        int i = 0; //TODO Implement this
 
         return false;
 
@@ -255,10 +253,10 @@ public abstract class XMLObject {
      * Find object of type T with the specified if from the specified list.
      * @param objects the list of objects of type T
      * @param id the id of the object we want to find in the list.
-     * @param <T> any XMLObject.
+     * @param <T> any AbstractXMLObject.
      * @return the object if any found, otherwise null.
      */
-    public final <T extends XMLObject> T findXMLObjectById(
+    public final <T extends AbstractXMLObject> T findXMLObjectById(
             final List<T> objects, final long id) {
         for (T object : objects) {
             if (object.getId() == id) {
