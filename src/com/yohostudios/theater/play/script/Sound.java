@@ -19,7 +19,7 @@ public class Sound extends AbstractXMLObject {
 
     /**
      * @param resourceId the Resource Id of the Sound
-     * @return 
+     * @return true if the sound was loaded, otherwise false.
      */
     public boolean load(int resourceId) {
         // TODO implement this
@@ -27,7 +27,7 @@ public class Sound extends AbstractXMLObject {
     }
 
     /**
-     * @return
+     * @return true if the sound is played successfully, otherwise false.
      */
     boolean play() {
         // TODO implement this
@@ -35,7 +35,7 @@ public class Sound extends AbstractXMLObject {
     }
 
     /**
-     * @return
+     * @return true if the sound is stopped successfully, otherwise false.
      */
     boolean stop() {
         // TODO implement this

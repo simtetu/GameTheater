@@ -22,7 +22,7 @@ public enum Operator {
     private String value;
 
     /**
-     * @param value
+     * @param value the operator as a String
      */
     private Operator(String value) {
         this.value = value;
@@ -40,15 +40,15 @@ public enum Operator {
 
     /**
      * 
-     * @return the value
+     * @return the operator as a String.
      */
     public String getValue() {
         return value;
     }
 
     /**
-     * @param value
-     * @return
+     * @param value the operator as a string.
+     * @return the enum corresponding to the string.
      * @throws UnsupportedOperatorException if the operator is not supported.
      */
     public static final Operator getOperator(String value)
@@ -63,17 +63,18 @@ public enum Operator {
     }
 
     /**
-     * @param operatorValues
-     * @return
+     * Get a list of operators matching provided values.
+     * @param operators list of operators as string values.
+     * @return a list of enums.
      * @throws UnsupportedOperatorException if the operator is not supported.
      */
-    public static final List<Operator> getOperators(List<String> operatorValues)
+    public static final List<Operator> getOperators(List<String> operators)
             throws UnsupportedOperatorException {
 
         List<Operator> operatorList = new ArrayList<Operator>();
 
-        for (String operatorValue : operatorValues) {
-            operatorList.add(getOperator(operatorValue));
+        for (String operator : operators) {
+            operatorList.add(getOperator(operator));
         }
 
         return operatorList;

@@ -73,8 +73,9 @@ public final class StringUtils {
     }
 
     /**
-     * @param str
-     * @param propertyValue
+     * Returns a list of tokens as strings from a source string. 
+     * @param str the string to tokenize.
+     * @param token separates the string.
      * @return a list of tokens.
      */
     public static List<String> tokenize(String str, String token) {

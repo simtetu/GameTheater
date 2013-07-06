@@ -26,10 +26,11 @@ public class TestPlay {
 		play = new Play("test/data/DeveloperPresentation.dat");
 	}
 
-	@Test
+	
 	/**
 	 * Checks if a scene was loaded
 	 */
+	@Test
 	public final void testPlay() {
 		assertEquals(play.getCurrentSceneId(), 1);
 		assertEquals(play.getScenes().size(), 1);

@@ -39,7 +39,7 @@ public class TestDialogue {
      * Test method for
      * {@link com.yohostudios.theater.play.script.Dialogue#initFromXML(java.lang.String)}
      * .
-     * @throws XMLParsingException
+     * @throws XMLParsingException if an error occurred while invoking initFromXML on a Dialogue. 
      */
     @Test
     public final void testInitFromXML() throws XMLParsingException {

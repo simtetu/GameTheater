@@ -33,12 +33,12 @@ public class TestSentence {
         xmlString = new StringBuilder().append(
                 "<Sentence id=\"1\" content=\"Hello\"></Sentence>").toString();
     }
-
+    
     /**
      * Test method for
      * {@link com.yohostudios.theater.play.script.Sentence#initFromXML(java.lang.String)}
      * .
-     * @throws XMLParsingException
+     * @throws XMLParsingException if an error occurred while invoking initFromXML on a Sentence. 
      */
     @Test
     public final void testInitFromXML() throws XMLParsingException {

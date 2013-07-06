@@ -30,8 +30,8 @@ public class Timer {
 	/**
 	 * Alternate constructor.
 	 * 
-	 * @param looping
-	 * @param durationInMillisec
+	 * @param looping true if the timer should restart after it expires, otherwise false.
+	 * @param durationInMillisec the duration of the timer.
 	 */
 	public Timer(boolean looping, long durationInMillisec) {
 		this.ticking = false;
@@ -45,10 +45,10 @@ public class Timer {
 	/**
 	 * Alternate constructor.
 	 * 
-	 * @param looping
-	 * @param random
-	 * @param minTime
-	 * @param maxTime
+	 * @param looping true if the timer should loop, otherwise false.
+	 * @param random true if the timer duration should be a random value between minTime and maxTime.
+	 * @param minimumTime the minimum duration of the timer.
+	 * @param maximumTime the maximum duration of the timer.
 	 */
 	public Timer(boolean looping, boolean random, long minimumTime,
 			long maximumTime) {
@@ -103,7 +103,7 @@ public class Timer {
 
 	/**
 	 * 
-	 * @return
+	 * @return true if ticking, otherwise false.
 	 */
 	public boolean tick() {
 		return false;
@@ -111,8 +111,8 @@ public class Timer {
 
 	/**
 	 * 
-	 * @param currentTime
-	 * @return
+	 * @param currentTime the current time in milliseconds.
+	 * @return true if ticking, otherwise false.
 	 */
 	public boolean tick(long currentTime) {
 		return false;
@@ -123,28 +123,28 @@ public class Timer {
     // ////////////////////////////////////////////////////////////////////////
 	
 	/**
-	 * @return access values Start Time
+	 * @return the timer start time
 	 */
 	public long getStartTime() {
 		return startTime;
 	}
 
 	/**
-	 * @param startTime taint or change Start Time
+	 * @param startTime is the timer's start time
 	 */
 	public void setStartTime(long startTime) {
 		this.startTime = startTime;
 	}
 
 	/**
-	 * @return access values Time Spent
+	 * @return the time spent.
 	 */
 	public long getTimeSpent() {
 		return timeSpent;
 	}
 
 	/**
-	 * @param timeSpent taint or change Time Spent
+	 * @param timeSpent the time spent.
 	 */
 	public void setTimeSpent(long timeSpent) {
 		this.timeSpent = timeSpent;

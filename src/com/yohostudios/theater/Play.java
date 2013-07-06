@@ -118,8 +118,9 @@ public class Play {
     }
 
     /**
-     * @param actors
-     * @return
+     * Find the actor from a list of actors that is located at specific coordinates. 
+     * @param actors a list of actors.
+     * @return the actor if found, otherwise null.
      */
     public Actor findActorFromCoordinates(List<Actor> actors) {
         // TODO implement this
@@ -138,8 +139,8 @@ public class Play {
     /**
      * TODO: rename this method to make it explicit.
      * Handles events triggered by touch.
-     * @param actors those accessible by 
-     * @return
+     * @param actors those accessible by the onTouch trigger.
+     * @return true if an actor was triggered, otherwise false.
      */
     public boolean validateTouchTriggers(List<Actor> actors) {
         // TODO implement this and use input coordinates to match an actor.

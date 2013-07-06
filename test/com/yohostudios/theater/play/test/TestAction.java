@@ -43,7 +43,7 @@ public class TestAction {
      * Test method for
      * {@link com.yohostudios.theater.play.Action#initFromXML(java.lang.String)}
      * .
-     * @throws XMLParsingException
+     * @throws XMLParsingException if an error occurred while invoking initFromXML on an Action. 
      */
     @Test
     public final void testInitFromXML() throws XMLParsingException {

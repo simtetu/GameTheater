@@ -9,7 +9,7 @@ import java.util.Random;
 public class RandomNumberGenerator {
 
 	/**
-	 * @return
+	 * @return a random number.
 	 */
 	public static long getRandomLong() {
 		 Random random = new Random();

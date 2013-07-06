@@ -46,6 +46,9 @@ public class TestScene {
         .append("</Scene>").toString();
     }
 
+    /**
+     * 
+     */
     @Test
     public final void testIsModifiedAttribute() {
         scene.getModifiedAttributes().add("Zero");

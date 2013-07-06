@@ -6,4 +6,10 @@ package com.yohostudios.theater.fx;
  */
 public class EffectFilter {
 
+    /**
+     * 
+     */
+    public EffectFilter(){
+        
+    }
 }

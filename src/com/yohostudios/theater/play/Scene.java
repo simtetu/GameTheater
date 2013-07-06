@@ -17,13 +17,13 @@ import com.yohostudios.theater.util.FileUtils;
  */
 public class Scene extends AbstractXMLObject {
 
-    /** List of Actor for the Scene*/
+    /** List of Actor for the Scene */
     private List<Actor> actors;
-    /** if the actor is visible or not*/
+    /** if the actor is visible or not */
     private boolean visible;
-    /** If the Object is in the Scene*/
+    /** If the Object is in the Scene */
     private boolean fadingIn;
-    /** If the Object is out the Scene*/
+    /** If the Object is out the Scene */
     private boolean fadingOut;
 
     /**
@@ -43,18 +43,16 @@ public class Scene extends AbstractXMLObject {
         setId(1); // TODO implement
         actors = new ArrayList<Actor>();
         fillListFromXML(actors, Actor.class, getXmlData());
-        
+
     }
 
-    /**
+    /*
      * Loads and parses an XML file to create a Scene.
-     * @param sceneId The current scene's id
+     * 
+     * private void loadScene() {
+     * 
+     * initFromXML(getXmlData()); // TODO implement this }
      */
-    private void loadScene(int sceneId) {
-
-        initFromXML(getXmlData());      
-        // TODO implement this
-    }
 
     /**
      * Draws actors in the room.
@@ -82,7 +80,8 @@ public class Scene extends AbstractXMLObject {
     /*
      * (non-Javadoc)
      * 
-     * @see com.yohostudios.theater.AbstractXMLObject#initFromXML(java.lang.String)
+     * @see
+     * com.yohostudios.theater.AbstractXMLObject#initFromXML(java.lang.String)
      */
     @Override
     public void initFromXML(String xmlString) {
@@ -93,8 +92,9 @@ public class Scene extends AbstractXMLObject {
     /*
      * (non-Javadoc)
      * 
-     * @see com.yohostudios.theater.AbstractXMLObject#modifyAttribute(java.lang.String,
-     * java.lang.String)
+     * @see
+     * com.yohostudios.theater.AbstractXMLObject#modifyAttribute(java.lang.String
+     * , java.lang.String)
      */
     @Override
     public void modifyAttribute(String attributeName, String attributeValue) {
@@ -105,7 +105,8 @@ public class Scene extends AbstractXMLObject {
     /*
      * (non-Javadoc)
      * 
-     * @see com.yohostudios.theater.AbstractXMLObject#getAttribute(java.lang.String)
+     * @see
+     * com.yohostudios.theater.AbstractXMLObject#getAttribute(java.lang.String)
      */
     @Override
     public String getAttribute(String attributeName) {
@@ -116,7 +117,8 @@ public class Scene extends AbstractXMLObject {
     /*
      * (non-Javadoc)
      * 
-     * @see com.yohostudios.theater.AbstractXMLObject#callMethod(java.lang.String,
+     * @see
+     * com.yohostudios.theater.AbstractXMLObject#callMethod(java.lang.String,
      * java.lang.String)
      */
     @Override

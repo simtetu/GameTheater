@@ -30,7 +30,7 @@ public abstract class AbstractXMLObject {
      * List of modified members of an AbstractXMLObject. An attribute is a
      * declared member of a class which is part of the object at compile time.
      **/
-    private final List<String> modifiedAttributes = new ArrayList<String>();
+    private final transient List<String> modifiedAttributes = new ArrayList<String>();
 
     /**
      * Parses an xml string, constructs objects that match the provided tag and
@@ -45,9 +45,10 @@ public abstract class AbstractXMLObject {
             List<T> objectList, Class<T> object, String xmlString) {
 
         String tagName = object.getSimpleName();
-        String token = "";
         String startTag = "<" + tagName;
         String endTag = "</" + tagName + ">";
+
+        String token;
         int startIndex = xmlString.indexOf('<', 0);
         int endIndex = xmlString.indexOf('>', 0);
 
@@ -73,6 +74,7 @@ public abstract class AbstractXMLObject {
                     objectList.add(extendsXMLObject);
 
                 } catch (Exception e) {
+                    // TODO: use a logger
                     e.printStackTrace();
                 }
             }
@@ -95,17 +97,13 @@ public abstract class AbstractXMLObject {
     public static String getValueFromParam(String xmlString, String param)
             throws XMLTagNotFoundException {
 
-        int startIndex = 0;
-        int endIndex = 0;
+        int startIndex;
+        int endIndex;
 
-        StringBuilder sb = new StringBuilder(" ");
-        sb.append(param).append("=\"");
+        String tag = new StringBuilder(" ").append(param).append("=\"")
+                .toString();
 
-        String tag = sb.toString();
-
-        int i = xmlString.indexOf(tag);
-
-        if (i < 0) {
+        if (xmlString.indexOf(tag) < 0) {
             throw new XMLTagNotFoundException("Cannot find tag: " + tag);
         }
 
@@ -129,8 +127,7 @@ public abstract class AbstractXMLObject {
             throws XMLTagNotFoundException {
 
         String value = getValueFromParam(xmlString, param);
-        List<String> values = StringUtils.tokenize(value, ",");
-        return values;
+        return StringUtils.tokenize(value, ",");
     }
 
     /**
@@ -144,8 +141,8 @@ public abstract class AbstractXMLObject {
      * @param secondValue the second value.
      * @return true if the comparison is numerically true, otherwise false.
      */
-    public static final boolean compareNumerical(final double firstValue,
-            final Operator operator, final double secondValue) {
+    public static final boolean compareNumerical(double firstValue,
+            Operator operator, double secondValue) {
 
         if ((operator.equals(Operator.EQUALS) && firstValue == secondValue)
                 || (operator.equals(Operator.LOWER_THAN_OR_EQUALS) && firstValue <= secondValue)
@@ -168,8 +165,8 @@ public abstract class AbstractXMLObject {
      * @param secondValue the second value.
      * @return true if the comparison is numerically true, otherwise false.
      */
-    public static final boolean compare(final Object firstValue,
-            final Operator operator, final Object secondValue) {
+    public static final boolean compare(Object firstValue, Operator operator,
+            Object secondValue) {
 
         // if we're dealing with strings that are not numeric, use
         // String.compareTo.
@@ -211,7 +208,7 @@ public abstract class AbstractXMLObject {
      * @param attributeName the name of the attribute to evaluate.
      * @return true if the attribute is modified, otherwise false.
      */
-    public final boolean isAttributeModified(final String attributeName) {
+    public final boolean isAttributeModified(String attributeName) {
 
         if (modifiedAttributes.contains(attributeName)) {
             return true;
@@ -221,8 +218,11 @@ public abstract class AbstractXMLObject {
 
     /*
      * @param name the string name of the Property
+     * 
      * @param operatorType the operator type of the Property
+     * 
      * @param comparisonValue the comparison value of the Property
+     * 
      * @return true if the value of the attribute referred by attributeName
      * compares with the comparisonValue, using the operatorType
      * 
@@ -235,8 +235,7 @@ public abstract class AbstractXMLObject {
      * 
      * }
      */
-    
-    
+
     /**
      * Searches for a Property by "propertyName" in AbstractXMLObject's
      * properties and if found, assigns it an "attributeValue".

@@ -6,9 +6,7 @@ import static org.junit.Assert.fail;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.yohostudios.theater.exception.UnsupportedOperatorException;
 import com.yohostudios.theater.exception.XMLParsingException;
-import com.yohostudios.theater.exception.XMLTagNotFoundException;
 import com.yohostudios.theater.play.Condition;
 import com.yohostudios.theater.util.Operator;
 
@@ -39,9 +37,8 @@ public class TestCondition {
      * Test method for
      * {@link com.yohostudios.theater.play.Condition#initFromXML(java.lang.String)}
      * .
-     * @throws XMLTagNotFoundException
-     * @throws UnsupportedOperatorException
-     * @throws NumberFormatException
+     * @throws XMLParsingException if an error occurred while invoking
+     *             initFromXML on a Condition.
      */
     @Test
     public final void testInitFromXML() throws XMLParsingException {
@@ -57,7 +54,8 @@ public class TestCondition {
 
     /**
      * 
-     * @throws XMLParsingException
+     * @throws XMLParsingException if an error occurred while invoking
+     *             initFromXML on a Condition.
      */
     @Test(expected = XMLParsingException.class)
     public final void testUnsupportedOperatorException()

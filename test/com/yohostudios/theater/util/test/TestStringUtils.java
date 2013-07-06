@@ -14,31 +14,41 @@ import com.yohostudios.theater.util.StringUtils;
 
 public class TestStringUtils {
 
+    /**
+     * 
+     * @throws Exception if an error occurred during setUp.
+     */
     @Before
     public void setUp() throws Exception {
-        
+
     }
 
+    /**
+     * 
+     */
     @Test
     public final void testGetParamInParentheses() {
-        
+
         String result = StringUtils.getParamInParentheses("(300)");
         assertEquals("Testing with a value", "300", result);
-        
+
         result = StringUtils.getParamInParentheses("(");
         assertEquals("Testing with missing parenthesis", "", result);
-        
+
         result = StringUtils.getParamInParentheses("");
-        assertEquals("Testing with an empty string","", result);
-        
+        assertEquals("Testing with an empty string", "", result);
+
         result = StringUtils.getParamInParentheses(null);
         assertEquals("Testing with null", "", result);
 
     }
-    
+
+    /**
+     * 
+     */
     @Test
     public final void testTokenize() {
-        
+
         List<String> tokens = new ArrayList<String>();
         String input = "Monday, Tuesday, Wednesday";
         tokens = StringUtils.tokenize(input, ", ");
@@ -46,15 +56,19 @@ public class TestStringUtils {
         assertEquals("Tuesday", tokens.get(1));
         assertEquals("Wednesday", tokens.get(2));
     }
-    
-    @Test public final void testIsNumeric() {
-        
+
+    /**
+     * 
+     */
+    @Test
+    public final void testIsNumeric() {
+
         assertFalse(StringUtils.isNumeric("abcde"));
         assertFalse(StringUtils.isNumeric("123456789a"));
         assertFalse(StringUtils.isNumeric(".200"));
         assertFalse(StringUtils.isNumeric("200..00"));
         assertFalse(StringUtils.isNumeric("200."));
-        
+
         assertTrue(StringUtils.isNumeric("200.00"));
         assertTrue(StringUtils.isNumeric("200.0"));
         assertTrue(StringUtils.isNumeric("200"));

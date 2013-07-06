@@ -27,7 +27,9 @@ public class FileUtils {
 		} catch (FileNotFoundException fnfe) {
 		// TODO implement logging other than System.out.println(fnfe.getMessage());
 		} finally {
-			scanner.close();
+			if (scanner != null) {
+			    scanner.close();
+			}
 		}
 		// TODO Implement logging instead of System.out.println(text);
 
