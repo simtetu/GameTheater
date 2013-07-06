@@ -19,13 +19,13 @@ public class Action extends AbstractXMLObject {
     private List<String> targetObjectIds;
     /** Type of AbstractXMLObject targeted. */
     private List<String> targetObjectTypes;
-    /** name of the attribute to compare.*/
+    /** name of the attribute to compare. */
     private List<String> paramNames;
-    /** values of the attribute to compare.*/
+    /** values of the attribute to compare. */
     private List<String> paramValues;
-    /** operators of the attribute to compare.*/
+    /** operators of the attribute to compare. */
     private List<Operator> paramOperators;
-    /** List of conditionds of AbstractXMLObject*/
+    /** List of conditionds of AbstractXMLObject */
     private List<Condition> conditions;
 
     /**
@@ -43,13 +43,11 @@ public class Action extends AbstractXMLObject {
     /*
      * (non-Javadoc)
      * 
-     * @see com.yohostudios.theater.AbstractXMLObject#initFromXML(java.lang.String)
+     * @see
+     * com.yohostudios.theater.AbstractXMLObject#initFromXML(java.lang.String)
      */
     @Override
     public void initFromXML(String xmlString) throws XMLParsingException {
-
-        conditions = new ArrayList<Condition>();
-        fillListFromXML(conditions, Condition.class, xmlString);
 
         setId(Long.parseLong(getValueFromParam(xmlString, "id")));
 
@@ -64,14 +62,15 @@ public class Action extends AbstractXMLObject {
 
         setTargetObjectIds(getValuesFromParam(xmlString, "targetObjectId"));
         setTargetObjectTypes(getValuesFromParam(xmlString, "targetObjectType"));
-
+        setConditions(getObjectListFromXML(Condition.class, xmlString));
     }
 
     /*
      * (non-Javadoc)
      * 
-     * @see com.yohostudios.theater.AbstractXMLObject#modifyAttribute(java.lang.String,
-     * java.lang.String)
+     * @see
+     * com.yohostudios.theater.AbstractXMLObject#modifyAttribute(java.lang.String
+     * , java.lang.String)
      */
     @Override
     public void modifyAttribute(String attributeName, String attributeValue) {
@@ -82,7 +81,8 @@ public class Action extends AbstractXMLObject {
     /*
      * (non-Javadoc)
      * 
-     * @see com.yohostudios.theater.AbstractXMLObject#getAttribute(java.lang.String)
+     * @see
+     * com.yohostudios.theater.AbstractXMLObject#getAttribute(java.lang.String)
      */
     @Override
     public String getAttribute(String attributeName) {
@@ -93,7 +93,8 @@ public class Action extends AbstractXMLObject {
     /*
      * (non-Javadoc)
      * 
-     * @see com.yohostudios.theater.AbstractXMLObject#callMethod(java.lang.String,
+     * @see
+     * com.yohostudios.theater.AbstractXMLObject#callMethod(java.lang.String,
      * java.lang.String)
      */
     @Override

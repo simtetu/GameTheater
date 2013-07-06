@@ -12,6 +12,7 @@ import org.junit.Test;
 
 import com.yohostudios.theater.play.Actor;
 import com.yohostudios.theater.play.Scene;
+import com.yohostudios.theater.util.FileUtils;
 
 /**
  * @author simon
@@ -29,21 +30,7 @@ public class TestScene {
     @Before
     public final void setUp() throws Exception {
         scene = new Scene();
-        xmlString =  new StringBuilder()
-        .append("<Scene>")
-        .append("<Actor name=\"Widget\" id=\"1\" x=\"2\" y=\"3\" z=\"4\" width=\"5\" height=\"6\"")
-        .append(" currentFrame=\"7\" sequenceIndex=\"8\" animated=\"true\" animFrameDelay=\"9\"")
-        .append(" currentDialogueId=\"10\" talking=\"false\" animDelayCounter=\"11\"")
-        .append(" loopAnimation=\"false\" visible=\"false\">")
-        .append("<Sprite></Sprite>")
-        .append("<Sound></Sound>")
-        .append("<Sound></Sound>")
-        .append("<Text></Text>")
-        .append("<Dialogue id=\"1\" nextDialogueId=\"2\" spokenTime=\"5\"></Dialogue>")
-        .append("<Trigger></Trigger>")
-        .append("<Property></Property>")
-        .append("</Actor>")
-        .append("</Scene>").toString();
+        xmlString = FileUtils.getFileContentAsString("test/data/TestScene.xml");
     }
 
     /**

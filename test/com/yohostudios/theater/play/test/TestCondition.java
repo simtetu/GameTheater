@@ -8,6 +8,7 @@ import org.junit.Test;
 
 import com.yohostudios.theater.exception.XMLParsingException;
 import com.yohostudios.theater.play.Condition;
+import com.yohostudios.theater.util.FileUtils;
 import com.yohostudios.theater.util.Operator;
 
 /**
@@ -27,10 +28,7 @@ public class TestCondition {
     @Before
     public void setUp() throws Exception {
         condition = new Condition();
-        xmlString = new StringBuilder()
-                .append("<Condition id=\"1\" targetObjectId=\"1999\" targetObjectType=\"Actor\"")
-                .append(" paramName=\"currentFrame\" paramOperator=\"eq\" paramValue=\"36\"></Condition>")
-                .toString();
+        xmlString = FileUtils.getFileContentAsString("test/data/TestCondition.xml");
     }
 
     /**

@@ -108,71 +108,57 @@ public class Actor extends AbstractXMLObject {
     /*
      * (non-Javadoc)
      * 
-     * @see com.yohostudios.theater.AbstractXMLObject#initFromXML(java.lang.String)
+     * @see
+     * com.yohostudios.theater.AbstractXMLObject#initFromXML(java.lang.String)
      */
     @Override
-    public void initFromXML(String xmlString) {
+    public void initFromXML(String xmlString) throws NumberFormatException,
+            XMLTagNotFoundException {
 
         setXmlData(xmlString);
 
-        try {
-            setId(Long.parseLong(getValueFromParam(xmlString, "id")));
+        setId(Long.parseLong(getValueFromParam(xmlString, "id")));
 
-            setName(getValueFromParam(xmlString, "name"));
-            setX(Integer.parseInt(getValueFromParam(xmlString, "x")));
-            setY(Integer.parseInt(getValueFromParam(xmlString, "y")));
-            setZ(Integer.parseInt(getValueFromParam(xmlString, "z")));
-            setWidth(Integer.parseInt(getValueFromParam(xmlString, "width")));
-            setHeight(Integer.parseInt(getValueFromParam(xmlString, "height")));
-            setCurrentFrame(Integer.parseInt(getValueFromParam(xmlString,
-                    "currentFrame")));
-            setSequenceIndex(Integer.parseInt(getValueFromParam(xmlString,
-                    "sequenceIndex")));
-            setAnimated(Boolean.parseBoolean(getValueFromParam(xmlString,
-                    "animated")));
-            setAnimFrameDelay(Integer.parseInt(getValueFromParam(xmlString,
-                    "animFrameDelay")));
-            setCurrentDialogueId(Integer.parseInt(getValueFromParam(xmlString,
-                    "currentDialogueId")));
-            setTalking(Boolean.parseBoolean(getValueFromParam(xmlString,
-                    "talking")));
-            setAnimDelayCounter(Integer.parseInt(getValueFromParam(xmlString,
-                    "animDelayCounter")));
-            setLoopAnimation(Boolean.parseBoolean(getValueFromParam(xmlString,
-                    "loopAnimation")));
-            setVisible(Boolean.parseBoolean(getValueFromParam(xmlString,
-                    "visible")));
+        setName(getValueFromParam(xmlString, "name"));
+        setX(Integer.parseInt(getValueFromParam(xmlString, "x")));
+        setY(Integer.parseInt(getValueFromParam(xmlString, "y")));
+        setZ(Integer.parseInt(getValueFromParam(xmlString, "z")));
+        setWidth(Integer.parseInt(getValueFromParam(xmlString, "width")));
+        setHeight(Integer.parseInt(getValueFromParam(xmlString, "height")));
+        setCurrentFrame(Integer.parseInt(getValueFromParam(xmlString,
+                "currentFrame")));
+        setSequenceIndex(Integer.parseInt(getValueFromParam(xmlString,
+                "sequenceIndex")));
+        setAnimated(Boolean.parseBoolean(getValueFromParam(xmlString,
+                "animated")));
+        setAnimFrameDelay(Integer.parseInt(getValueFromParam(xmlString,
+                "animFrameDelay")));
+        setCurrentDialogueId(Integer.parseInt(getValueFromParam(xmlString,
+                "currentDialogueId")));
+        setTalking(Boolean
+                .parseBoolean(getValueFromParam(xmlString, "talking")));
+        setAnimDelayCounter(Integer.parseInt(getValueFromParam(xmlString,
+                "animDelayCounter")));
+        setLoopAnimation(Boolean.parseBoolean(getValueFromParam(xmlString,
+                "loopAnimation")));
+        setVisible(Boolean
+                .parseBoolean(getValueFromParam(xmlString, "visible")));
 
-            sprites = new ArrayList<Sprite>();
-            sounds = new ArrayList<Sound>();
-            texts = new ArrayList<Text>();
-            triggers = new ArrayList<Trigger>();
-            dialogues = new ArrayList<Dialogue>();
-            setProperties(new ArrayList<Property>());
-
-            // parse objects from XML and fill lists
-            fillListFromXML(sprites, Sprite.class, xmlString);
-            fillListFromXML(sounds, Sound.class, xmlString);
-            fillListFromXML(texts, Text.class, xmlString);
-            fillListFromXML(triggers, Trigger.class, xmlString);
-            fillListFromXML(dialogues, Dialogue.class, xmlString);
-            fillListFromXML(getProperties(), Property.class, xmlString);
-
-        } catch (NumberFormatException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (XMLTagNotFoundException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+        setSprites(getObjectListFromXML(Sprite.class, xmlString));
+        setSounds(getObjectListFromXML(Sound.class, xmlString));
+        setTexts(getObjectListFromXML(Text.class, xmlString));
+        setTriggers(getObjectListFromXML(Trigger.class,xmlString));
+        setDialogues(getObjectListFromXML(Dialogue.class, xmlString));
+        setProperties(getObjectListFromXML(Property.class, xmlString));
 
     }
 
     /*
      * (non-Javadoc)
      * 
-     * @see com.yohostudios.theater.AbstractXMLObject#modifyAttribute(java.lang.String,
-     * java.lang.String)
+     * @see
+     * com.yohostudios.theater.AbstractXMLObject#modifyAttribute(java.lang.String
+     * , java.lang.String)
      */
     @Override
     public void modifyAttribute(String attributeName, String attributeValue) {
@@ -183,7 +169,8 @@ public class Actor extends AbstractXMLObject {
     /*
      * (non-Javadoc)
      * 
-     * @see com.yohostudios.theater.AbstractXMLObject#getAttribute(java.lang.String)
+     * @see
+     * com.yohostudios.theater.AbstractXMLObject#getAttribute(java.lang.String)
      */
     @Override
     public String getAttribute(String attributeName) {
@@ -194,7 +181,8 @@ public class Actor extends AbstractXMLObject {
     /*
      * (non-Javadoc)
      * 
-     * @see com.yohostudios.theater.AbstractXMLObject#callMethod(java.lang.String,
+     * @see
+     * com.yohostudios.theater.AbstractXMLObject#callMethod(java.lang.String,
      * java.lang.String)
      */
     @Override
@@ -219,7 +207,7 @@ public class Actor extends AbstractXMLObject {
     // ////////////////////////////////////////////////////////////////////////
 
     /**
-     * @return the current animation sprite. 
+     * @return the current animation sprite.
      */
     public int getCurrentSprite() {
         return currentSprite;
@@ -345,7 +333,7 @@ public class Actor extends AbstractXMLObject {
     }
 
     /**
-     * @return the height offset area of the actor. 
+     * @return the height offset area of the actor.
      */
     public int getOffsetAreaH() {
         return offsetAreaH;

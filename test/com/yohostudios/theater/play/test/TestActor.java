@@ -11,7 +11,9 @@ import static org.junit.Assert.fail;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.yohostudios.theater.exception.XMLTagNotFoundException;
 import com.yohostudios.theater.play.Actor;
+import com.yohostudios.theater.util.FileUtils;
 
 /**
  * @author simon
@@ -30,26 +32,17 @@ public class TestActor {
     public void setUp() throws Exception {
 
         actor = new Actor();
-        xmlString = new StringBuilder()
-                .append("<Actor name=\"Widget\" id=\"1\" x=\"2\" y=\"3\" z=\"4\" width=\"5\" height=\"6\"")
-                .append(" currentFrame=\"7\" sequenceIndex=\"8\" animated=\"true\" animFrameDelay=\"9\"")
-                .append(" currentDialogueId=\"10\" talking=\"false\" animDelayCounter=\"11\"")
-                .append(" loopAnimation=\"false\" visible=\"false\">")
-                .append("<Sprite></Sprite>")
-                .append("<Sound></Sound>")
-                .append("<Sound></Sound>")
-                .append("<Text></Text>")
-                .append("<Dialogue id=\"1\" nextDialogueId=\"2\" spokenTime=\"5\"></Dialogue>")
-                .append("<Trigger></Trigger>").append("<Property></Property>")
-                .append("</Actor>").toString();
+        xmlString = FileUtils.getFileContentAsString("test/data/TestActor.xml");
     }
 
     /**
      * Test method for
      * {@link com.yohostudios.theater.play.Actor#initFromXML(java.lang.String)}.
+     * @throws XMLTagNotFoundException 
+     * @throws NumberFormatException 
      */
     @Test
-    public final void testInitFromXML() {
+    public final void testInitFromXML() throws NumberFormatException, XMLTagNotFoundException {
 
         actor.initFromXML(xmlString);
         assertEquals("Widget", actor.getName());

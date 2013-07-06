@@ -1,0 +1,18 @@
+<Actor name="Widget" id="1" x="2" y="3" z="4" width="5" height="6"
+    currentFrame="7" sequenceIndex="8" animated="true" animFrameDelay="9"
+    currentDialogueId="10" talking="false" animDelayCounter="11"
+    loopAnimation="false" visible="false">
+    <Sprite id="1" width="2" height="3" alpha="4" frames="5"
+        resourceId="6"></Sprite>
+    <Sound></Sound>
+    <Sound></Sound>
+    <Text id="1" x="2" y="3" content="125.00" format="currency"
+        fontFrames="4" fontResourceId="5" fontResourceWidth="6"
+        fontResourceHeight="7"></Text>
+    <Dialogue id="1" nextDialogueId="2" spokenTime="5">
+        <Sentence id="1" content="Hello"></Sentence>
+        <Sentence id="2" content="World"></Sentence>
+    </Dialogue>
+    <Trigger></Trigger>
+    <Property></Property>
+</Actor>

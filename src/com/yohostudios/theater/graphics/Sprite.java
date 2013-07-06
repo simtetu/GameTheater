@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.Rect;
 
 import com.yohostudios.theater.AbstractXMLObject;
+import com.yohostudios.theater.exception.XMLTagNotFoundException;
 import com.yohostudios.theater.fx.EffectFilter;
 
 /**
@@ -61,18 +62,27 @@ public class Sprite extends AbstractXMLObject {
     /*
      * (non-Javadoc)
      * 
-     * @see com.yohostudios.theater.AbstractXMLObject#initFromXML(java.lang.String)
+     * @see
+     * com.yohostudios.theater.AbstractXMLObject#initFromXML(java.lang.String)
      */
     @Override
-    public void initFromXML(String xmlString) {
-        // TODO Auto-generated method stub
+    public void initFromXML(String xmlString) throws NumberFormatException, XMLTagNotFoundException {
+               
+            setId(Integer.parseInt(getValueFromParam(xmlString, "id")));
+            setWidth(Integer.parseInt(getValueFromParam(xmlString, "width")));
+            setHeight(Integer.parseInt(getValueFromParam(xmlString, "height")));
+            setAlpha(Integer.parseInt(getValueFromParam(xmlString, "alpha")));
+            setFrames(Integer.parseInt(getValueFromParam(xmlString, "frames")));
+            setResourceId(Integer.parseInt(getValueFromParam(xmlString,
+                    "resourceId")));
     }
 
     /*
      * (non-Javadoc)
      * 
-     * @see com.yohostudios.theater.AbstractXMLObject#modifyAttribute(java.lang.String,
-     * java.lang.String)
+     * @see
+     * com.yohostudios.theater.AbstractXMLObject#modifyAttribute(java.lang.String
+     * , java.lang.String)
      */
     @Override
     public void modifyAttribute(String attributeName, String attributeValue) {
@@ -83,7 +93,8 @@ public class Sprite extends AbstractXMLObject {
     /*
      * (non-Javadoc)
      * 
-     * @see com.yohostudios.theater.AbstractXMLObject#getAttribute(java.lang.String)
+     * @see
+     * com.yohostudios.theater.AbstractXMLObject#getAttribute(java.lang.String)
      */
     @Override
     public String getAttribute(String attributeName) {
@@ -94,7 +105,8 @@ public class Sprite extends AbstractXMLObject {
     /*
      * (non-Javadoc)
      * 
-     * @see com.yohostudios.theater.AbstractXMLObject#callMethod(java.lang.String,
+     * @see
+     * com.yohostudios.theater.AbstractXMLObject#callMethod(java.lang.String,
      * java.lang.String)
      */
     @Override

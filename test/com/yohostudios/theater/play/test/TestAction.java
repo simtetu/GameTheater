@@ -14,6 +14,7 @@ import org.junit.Test;
 
 import com.yohostudios.theater.exception.XMLParsingException;
 import com.yohostudios.theater.play.Action;
+import com.yohostudios.theater.util.FileUtils;
 import com.yohostudios.theater.util.Operator;
 
 /**
@@ -32,13 +33,9 @@ public class TestAction {
     @Before
     public void setUp() throws Exception {
         action = new Action();
-        xmlString = new StringBuilder()
-                .append("<Action id=\"1\" type=\"modifyAttribute,modifyAttribute,changeRoom\"")
-                .append(" targetObjectId=\"3001,3001,2000\" targetObjectType=\"Actor,Actor,Actor\"")
-                .append(" paramName=\"currentFrame,visible,room\" paramValue=\"0,true,1005\" paramOperator=\"+=,=,=\">")
-                .toString();
+        xmlString = FileUtils.getFileContentAsString("test/data/TestAction.xml");
     }
-
+    
     /**
      * Test method for
      * {@link com.yohostudios.theater.play.Action#initFromXML(java.lang.String)}

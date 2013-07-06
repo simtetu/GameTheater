@@ -1,6 +1,7 @@
 package com.yohostudios.theater.graphics;
 
 import com.yohostudios.theater.AbstractXMLObject;
+import com.yohostudios.theater.exception.XMLTagNotFoundException;
 
 /**
  * @author simon
@@ -8,28 +9,29 @@ import com.yohostudios.theater.AbstractXMLObject;
  */
 public class Text extends AbstractXMLObject {
 
-    /** The Font Resource Id*/
+    /** The Font Resource Id */
     private long fontResourceId;
-    /** The position X of the object*/
+    /** The position X of the object */
     private int x;
-    /** The position Y of the object*/
+    /** The position Y of the object */
     private int y;
-    /** The Font Frames*/
+    /** The Font Frames */
     private int fontFrames;
-    /** The Font Resource Width*/
+    /** The Font Resource Width */
     private int fontResourceWidth;
-    /** The Font Resource Height*/
+    /** The Font Resource Height */
     private int fontResourceHeight;
-    /** The Format of the object*/
+    /** The Format of the object */
     private String format;
-    /** The current Text of the history*/
-    private String text;
-    /** The Font for the Text*/
+    /** The current Text of the history */
+    private String content;
+    /** The Font for the Text */
     private Font font;
 
     /**
-	 *  to render your own custom graphics onto a canvas or to modify existing Views to customize their look and feel
-	 */
+     * to render your own custom graphics onto a canvas or to modify existing
+     * Views to customize their look and feel
+     */
     public void render() {
 
     }
@@ -37,19 +39,35 @@ public class Text extends AbstractXMLObject {
     /*
      * (non-Javadoc)
      * 
-     * @see com.yohostudios.theater.AbstractXMLObject#initFromXML(java.lang.String)
+     * @see
+     * com.yohostudios.theater.AbstractXMLObject#initFromXML(java.lang.String)
      */
     @Override
-    public void initFromXML(String xmlString) {
-        // TODO Auto-generated method stub
+    public void initFromXML(String xmlString) throws NumberFormatException,
+            XMLTagNotFoundException {
+
+        setId(Integer.parseInt(getValueFromParam(xmlString, "id")));
+        setFontResourceId(Long.parseLong(getValueFromParam(xmlString,
+                "fontResourceId")));
+        setX(Integer.parseInt(getValueFromParam(xmlString, "x")));
+        setY(Integer.parseInt(getValueFromParam(xmlString, "y")));
+        setFontFrames(Integer.parseInt(getValueFromParam(xmlString,
+                "fontFrames")));
+        setFontResourceWidth(Integer.parseInt(getValueFromParam(xmlString,
+                "fontResourceWidth")));
+        setFontResourceHeight(Integer.parseInt(getValueFromParam(xmlString,
+                "fontResourceHeight")));
+        setFormat(getValueFromParam(xmlString, "format"));
+        setContent(getValueFromParam(xmlString, "content"));
 
     }
 
     /*
      * (non-Javadoc)
      * 
-     * @see com.yohostudios.theater.AbstractXMLObject#modifyAttribute(java.lang.String,
-     * java.lang.String)
+     * @see
+     * com.yohostudios.theater.AbstractXMLObject#modifyAttribute(java.lang.String
+     * , java.lang.String)
      */
     @Override
     public void modifyAttribute(String attributeName, String attributeValue) {
@@ -60,7 +78,8 @@ public class Text extends AbstractXMLObject {
     /*
      * (non-Javadoc)
      * 
-     * @see com.yohostudios.theater.AbstractXMLObject#getAttribute(java.lang.String)
+     * @see
+     * com.yohostudios.theater.AbstractXMLObject#getAttribute(java.lang.String)
      */
     @Override
     public String getAttribute(String attributeName) {
@@ -71,7 +90,8 @@ public class Text extends AbstractXMLObject {
     /*
      * (non-Javadoc)
      * 
-     * @see com.yohostudios.theater.AbstractXMLObject#callMethod(java.lang.String,
+     * @see
+     * com.yohostudios.theater.AbstractXMLObject#callMethod(java.lang.String,
      * java.lang.String)
      */
     @Override
@@ -196,15 +216,15 @@ public class Text extends AbstractXMLObject {
     /**
      * @return access values Text
      */
-    public String getText() {
-        return text;
+    public String getContent() {
+        return content;
     }
 
     /**
-     * @param text taint or change Text
+     * @param content taint or change Text
      */
-    public void setText(String text) {
-        this.text = text;
+    public void setContent(String content) {
+        this.content = content;
     }
 
     /**

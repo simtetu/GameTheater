@@ -3,10 +3,15 @@
  */
 package com.yohostudios.theater.graphics.test;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import com.yohostudios.theater.exception.XMLTagNotFoundException;
+import com.yohostudios.theater.graphics.Sprite;
+import com.yohostudios.theater.util.FileUtils;
 
 /**
  * @author simon
@@ -14,22 +19,39 @@ import org.junit.Test;
  */
 public class TestSprite {
 
+    private Sprite sprite;
+    private String xmlString;
+
     /**
      * @throws java.lang.Exception
      * @throws Exception The String for the Exception
      */
     @Before
     public void setUp() throws Exception {
+        sprite = new Sprite();
+        xmlString = FileUtils.getFileContentAsString("test/data/TestSprite.xml");
     }
 
     /**
      * Test method for
      * {@link com.yohostudios.theater.graphics.Sprite#initFromXML(java.lang.String)}
      * .
+     * @throws XMLTagNotFoundException when the XML tag is not found.
+     * @throws NumberFormatException when a conversion error occurs.
      */
     @Test
-    public final void testInitFromXML() {
-        fail("Not yet implemented"); // TODO
+    public final void testInitFromXML() throws NumberFormatException,
+            XMLTagNotFoundException {
+
+        sprite.initFromXML(xmlString);
+
+        assertEquals(1, sprite.getId());
+        assertEquals(2, sprite.getWidth());
+        assertEquals(3, sprite.getHeight());
+        assertEquals(4, sprite.getAlpha());
+        assertEquals(5, sprite.getFrames());
+        assertEquals(6, sprite.getResourceId());
+
     }
 
     /**

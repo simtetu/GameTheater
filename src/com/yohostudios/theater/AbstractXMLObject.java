@@ -31,7 +31,7 @@ public abstract class AbstractXMLObject {
      * declared member of a class which is part of the object at compile time.
      **/
     private final transient List<String> modifiedAttributes = new ArrayList<String>();
-
+   
     /**
      * Parses an xml string, constructs objects that match the provided tag and
      * adds them to a List of type T.
@@ -41,9 +41,11 @@ public abstract class AbstractXMLObject {
      *            the List.
      * @param xmlString the XML data
      */
-    public final <T extends AbstractXMLObject> void fillListFromXML(
-            List<T> objectList, Class<T> object, String xmlString) {
+    public final <T extends AbstractXMLObject> List<T> getObjectListFromXML(
+            Class<T> object, String xmlString) {
 
+        List<T> objectList = new ArrayList<T>(); 
+        
         String tagName = object.getSimpleName();
         String startTag = "<" + tagName;
         String endTag = "</" + tagName + ">";
@@ -84,8 +86,10 @@ public abstract class AbstractXMLObject {
             endIndex = xmlString.indexOf('>', ++endIndex); // find end of tag
         }
         modifiedAttributes.clear();
+        return objectList;
     }
 
+    
     /**
      * Get the value for the param from the xmlString.
      * @param xmlString the XML string.

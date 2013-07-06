@@ -30,8 +30,7 @@ public class Dialogue extends AbstractXMLObject {
         setId(Long.parseLong(getValueFromParam(xmlString, "id")));
         setNextDialogueId(Long.parseLong(getValueFromParam(xmlString, "nextDialogueId")));
         setSpokenTime(Integer.parseInt(getValueFromParam(xmlString, "spokenTime")));
-        sentences = new ArrayList<Sentence>();
-        fillListFromXML(sentences, Sentence.class, xmlString);
+        setSentences(getObjectListFromXML(Sentence.class, xmlString));
 
     }
 

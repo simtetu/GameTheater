@@ -11,6 +11,7 @@ import org.junit.Test;
 
 import com.yohostudios.theater.exception.XMLParsingException;
 import com.yohostudios.theater.play.script.Dialogue;
+import com.yohostudios.theater.util.FileUtils;
 
 /**
  * @author simon
@@ -28,11 +29,7 @@ public class TestDialogue {
     @Before
     public void setUp() throws Exception {
         dialogue = new Dialogue();
-        xmlString = new StringBuilder()
-                .append("<Dialogue id=\"1\" nextDialogueId=\"2\" spokenTime=\"5\">")
-                .append("<Sentence id=\"1\" content=\"Hello\"></Sentence>")
-                .append("<Sentence id=\"2\" content=\"World\"></Sentence>")
-                .append("</Dialogue>").toString();
+        xmlString = FileUtils.getFileContentAsString("test/data/TestDialogue.xml");
     }
 
     /**

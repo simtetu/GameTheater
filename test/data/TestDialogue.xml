@@ -1,0 +1,4 @@
+<Dialogue id="1" nextDialogueId="2" spokenTime="5">
+    <Sentence id="1" content="Hello"></Sentence>
+    <Sentence id="2" content="World"></Sentence>
+</Dialogue>

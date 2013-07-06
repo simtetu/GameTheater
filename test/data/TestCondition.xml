@@ -1,0 +1,2 @@
+<Condition id="1" targetObjectId="1999" targetObjectType="Actor"
+    paramName="currentFrame" paramOperator="eq" paramValue="36"></Condition>

@@ -60,9 +60,10 @@ public class Play {
         scenes.add(scene);
 
         if (scene.isFadingIn()) {
-            fadeFilter = new FadeFilter(); // TODO implement from opaque to
-                                           // transparent in a certain amount of
-                                           // steps.
+            // TODO implement from opaque to
+            // transparent in a certain amount of
+            // steps.
+            fadeFilter = new FadeFilter();
         }
 
     }
@@ -118,7 +119,8 @@ public class Play {
     }
 
     /**
-     * Find the actor from a list of actors that is located at specific coordinates. 
+     * Find the actor from a list of actors that is located at specific
+     * coordinates.
      * @param actors a list of actors.
      * @return the actor if found, otherwise null.
      */
@@ -137,8 +139,8 @@ public class Play {
     }
 
     /**
-     * TODO: rename this method to make it explicit.
-     * Handles events triggered by touch.
+     * TODO: rename this method to make it explicit. Handles events triggered by
+     * touch.
      * @param actors those accessible by the onTouch trigger.
      * @return true if an actor was triggered, otherwise false.
      */

@@ -39,11 +39,8 @@ public class Scene extends AbstractXMLObject {
      */
     public Scene(String resourceFileName) {
         setXmlData(FileUtils.getFileContentAsString(resourceFileName));
-        actors = new ArrayList<Actor>();
         setId(1); // TODO implement
-        actors = new ArrayList<Actor>();
-        fillListFromXML(actors, Actor.class, getXmlData());
-
+        setActors(getObjectListFromXML(Actor.class, getXmlData()));
     }
 
     /*
@@ -85,8 +82,7 @@ public class Scene extends AbstractXMLObject {
      */
     @Override
     public void initFromXML(String xmlString) {
-        actors = new ArrayList<Actor>();
-        fillListFromXML(actors, Actor.class, xmlString);
+        setActors(getObjectListFromXML(Actor.class, xmlString));
     }
 
     /*
