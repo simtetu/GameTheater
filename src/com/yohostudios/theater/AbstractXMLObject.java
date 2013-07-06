@@ -21,14 +21,14 @@ public abstract class AbstractXMLObject {
     /** The XML data used that describes the AbstractXMLObject. **/
     private String xmlData;
     /**
-     * List of dynamic properties of an AbstractXMLObject. These are not the declared
-     * members of a class, they are dynamic properties of an object that can be
-     * added at runtime.
+     * List of dynamic properties of an AbstractXMLObject. These are not the
+     * declared members of a class, they are dynamic properties of an object
+     * that can be added at runtime.
      **/
     private List<Property> properties;
     /**
-     * List of modified members of an AbstractXMLObject. An attribute is a declared
-     * member of a class which is part of the object at compile time.
+     * List of modified members of an AbstractXMLObject. An attribute is a
+     * declared member of a class which is part of the object at compile time.
      **/
     private final List<String> modifiedAttributes = new ArrayList<String>();
 
@@ -41,8 +41,8 @@ public abstract class AbstractXMLObject {
      *            the List.
      * @param xmlString the XML data
      */
-    public final <T extends AbstractXMLObject> void fillListFromXML(List<T> objectList,
-            Class<T> object, String xmlString) {
+    public final <T extends AbstractXMLObject> void fillListFromXML(
+            List<T> objectList, Class<T> object, String xmlString) {
 
         String tagName = object.getSimpleName();
         String token = "";
@@ -53,7 +53,7 @@ public abstract class AbstractXMLObject {
 
         // while there are tags to read
         while (true) {
-         
+
             if (startIndex == -1) { // if there is no more tags to be read, exit
                 break;
             }
@@ -77,7 +77,8 @@ public abstract class AbstractXMLObject {
                 }
             }
 
-            startIndex = xmlString.indexOf('<', endIndex); // move forward to finding next tag
+            startIndex = xmlString.indexOf('<', endIndex); // move forward to
+                                                           // finding next tag
             endIndex = xmlString.indexOf('>', ++endIndex); // find end of tag
         }
         modifiedAttributes.clear();
@@ -115,11 +116,14 @@ public abstract class AbstractXMLObject {
     }
 
     /**
+     * Returns a list of values associated to a parameter of an XML string. Ex:
+     * getValuesFromParam("<Actor childs=\"Alice,Bob,Charles\">", "childs")
+     * would return a List containing "Alice", "Bob" and "Charles".
      * 
-     * @param xmlString
-     * @param param
-     * @return
-     * @throws XMLTagNotFoundException
+     * @param xmlString the XML string.
+     * @param param the param to get the values from.
+     * @return a list of strings.
+     * @throws XMLTagNotFoundException if param cannot be found.
      */
     public static List<String> getValuesFromParam(String xmlString, String param)
             throws XMLTagNotFoundException {
@@ -227,24 +231,28 @@ public abstract class AbstractXMLObject {
             String comparisonValue) {
 
         // for (Pro)
-        int i = 0; //TODO Implement this
+        int i = 0; // TODO Implement this
 
         return false;
 
     }
 
     /**
-     * @param propertyName
-     * @param propertyValue
-     * @param operator
+     * Searches for a Property by "propertyName" in AbstractXMLObject's
+     * properties and if found, assigns it an "attributeValue".
+     * @param name the key of the Property to look for in the list of
+     *            properties.
+     * @param value modifies the current value of the Property.
+     * @param operator determines how the value modifies the current value of
+     *            the Property.
      */
-    public final void modifyProperty(String propertyName, String propertyValue,
+    public final void modifyProperty(String name, String value,
             Operator operator) {
 
         for (Property property : properties) {
-            if (property.getName().equals(propertyName)) {
+            if (property.getName().equals(name)) {
                 if (operator == null) {
-                    property.setValue(propertyValue);
+                    property.setValue(value);
                 } else if (operator.equals(Operator.ADD_ASSIGN)) {
                     // TODO add assignment
                 } else if (operator.equals(Operator.SUB_ASSIGN)) {
@@ -336,7 +344,7 @@ public abstract class AbstractXMLObject {
     }
 
     /**
-     * @param xMLData taint or change Xml Data.
+     * @param xmlData taint or change Xml Data.
      */
     public final void setXmlData(String xmlData) {
         this.xmlData = xmlData;
@@ -350,7 +358,7 @@ public abstract class AbstractXMLObject {
     }
 
     /**
-     * @param properties
+     * @param properties a list of properties
      */
     public final void setProperties(List<Property> properties) {
         this.properties = properties;

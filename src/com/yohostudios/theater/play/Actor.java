@@ -219,401 +219,407 @@ public class Actor extends AbstractXMLObject {
     // ////////////////////////////////////////////////////////////////////////
 
     /**
-     * @return
+     * @return the current animation sprite. 
      */
     public int getCurrentSprite() {
         return currentSprite;
     }
 
     /**
-     * @param currentSprite
+     * @param currentSprite the current animation sprite.
      */
     public void setCurrentSprite(int currentSprite) {
         this.currentSprite = currentSprite;
     }
 
     /**
-     * @return
+     * @return the X coordinate of the actor.
      */
     public int getX() {
         return x;
     }
 
     /**
-     * @param x
+     * @param x the X coordinate of the actor.
      */
     public void setX(int x) {
         this.x = x;
     }
 
     /**
-     * @return
+     * @return the Y coordinate of the actor.
      */
     public int getY() {
         return y;
     }
 
     /**
-     * @param y
+     * @param y the Y coordinate of the actor.
      */
     public void setY(int y) {
         this.y = y;
     }
 
     /**
-     * @return
+     * @return the Z coordinate of the actor.
      */
     public int getZ() {
         return z;
     }
 
     /**
-     * @param z
+     * @param z the Z coordinate of the actor.
      */
     public void setZ(int z) {
         this.z = z;
     }
 
     /**
-     * @return
+     * @return the width of the actor.
      */
     public int getWidth() {
         return width;
     }
 
     /**
-     * @param width
+     * @param width the width of the actor.
      */
     public void setWidth(int width) {
         this.width = width;
     }
 
     /**
-     * @return
+     * @return the height of the actor.
      */
     public int getHeight() {
         return height;
     }
 
     /**
-     * @param height
+     * @param height the height of the actor.
      */
     public void setHeight(int height) {
         this.height = height;
     }
 
     /**
-     * @return
+     * @return the offset area in X coordinates of the actor.
      */
     public int getOffsetAreaX() {
         return offsetAreaX;
     }
 
     /**
-     * @param offsetAreaX
+     * @param offsetAreaX the offset area in X coordinates of the actor.
      */
     public void setOffsetAreaX(int offsetAreaX) {
         this.offsetAreaX = offsetAreaX;
     }
 
     /**
-     * @return
+     * @return the offset area in Y coordinates of the actor.
      */
     public int getOffsetAreaY() {
         return offsetAreaY;
     }
 
     /**
-     * @param offsetAreaY
+     * @param offsetAreaY the offset area in Y coordinates of the actor.
      */
     public void setOffsetAreaY(int offsetAreaY) {
         this.offsetAreaY = offsetAreaY;
     }
 
     /**
-     * @return
+     * @return the width offset area of the actor.
      */
     public int getOffsetAreaW() {
         return offsetAreaW;
     }
 
     /**
-     * @param offsetAreaW
+     * @param offsetAreaW the width offset area of the actor.
      */
     public void setOffsetAreaW(int offsetAreaW) {
         this.offsetAreaW = offsetAreaW;
     }
 
     /**
-     * @return
+     * @return the height offset area of the actor. 
      */
     public int getOffsetAreaH() {
         return offsetAreaH;
     }
 
     /**
-     * @param offsetAreaH
+     * @param offsetAreaH the height offset area of the actor.
      */
     public void setOffsetAreaH(int offsetAreaH) {
         this.offsetAreaH = offsetAreaH;
     }
 
     /**
-     * @return
+     * @return the current frame of animation of the actor.
      */
     public int getCurrentFrame() {
         return currentFrame;
     }
 
     /**
-     * @param currentFrame
+     * @param currentFrame the current animation frame.
      */
     public void setCurrentFrame(int currentFrame) {
         this.currentFrame = currentFrame;
     }
 
     /**
-     * @return
+     * @return the current animation sequence in use.
      */
     public int getSequenceIndex() {
         return sequenceIndex;
     }
 
     /**
-     * @param sequenceIndex
+     * @param sequenceIndex the current animation sequence in use.
      */
     public void setSequenceIndex(int sequenceIndex) {
         this.sequenceIndex = sequenceIndex;
     }
 
     /**
-     * @return
+     * @return the delay between each frame of animation.
      */
     public int getAnimFrameDelay() {
         return animFrameDelay;
     }
 
     /**
-     * @param animFrameDelay
+     * @param animFrameDelay the delay between each frame of animation.
      */
     public void setAnimFrameDelay(int animFrameDelay) {
         this.animFrameDelay = animFrameDelay;
     }
 
     /**
-     * @return
+     * @return a counter for the animation delay.
      */
     public int getAnimDelayCounter() {
         return animDelayCounter;
     }
 
     /**
-     * @param animDelayCounter
+     * @param animDelayCounter a counter for the animation delay.
      */
     public void setAnimDelayCounter(int animDelayCounter) {
         this.animDelayCounter = animDelayCounter;
     }
 
     /**
-     * @return
+     * @return the index to stop at, in the animation sequence.
      */
     public int getStopIndex() {
         return stopIndex;
     }
 
     /**
-     * @param stopIndex
+     * @param stopIndex the index to stop at, in the animation sequence.
      */
     public void setStopIndex(int stopIndex) {
         this.stopIndex = stopIndex;
     }
 
     /**
-     * @return
+     * @return true if animated, otherwise false.
      */
     public boolean isAnimated() {
         return animated;
     }
 
     /**
-     * @param animated
+     * @param animated true so the Actor is animated, otherwise false.
      */
     public void setAnimated(boolean animated) {
         this.animated = animated;
     }
 
     /**
-     * @return
+     * @return true if animation should loop, otherwise false.
      */
     public boolean isLoopAnimation() {
         return loopAnimation;
     }
 
     /**
-     * @param loopAnimation
+     * @param loopAnimation true if animation should loop, otherwise false.
      */
     public void setLoopAnimation(boolean loopAnimation) {
         this.loopAnimation = loopAnimation;
     }
 
     /**
-     * @return
+     * @return the list of sprites that represent the actor.
      */
     public List<Sprite> getSprites() {
         return sprites;
     }
 
     /**
-     * @param sprites
+     * @param sprites the list of sprites that represent the actor.
      */
     public void setSprites(List<Sprite> sprites) {
         this.sprites = sprites;
     }
 
     /**
-     * @return
+     * @return the list of sounds that the actor can make.
      */
     public List<Sound> getSounds() {
         return sounds;
     }
 
     /**
-     * @param sounds
+     * @param sounds the list of sounds that the actor can make.
      */
     public void setSounds(List<Sound> sounds) {
         this.sounds = sounds;
     }
 
     /**
-     * @return
+     * @return a list of triggers that would have the actor take action.
      */
     public List<Trigger> getTriggers() {
         return triggers;
     }
 
     /**
-     * @param triggers
+     * @param triggers a list of triggers that would have the actor take action.
      */
     public void setTriggers(List<Trigger> triggers) {
         this.triggers = triggers;
     }
 
     /**
-     * @return
+     * @return a list of the actor's many dialogues.
      */
     public List<Dialogue> getDialogues() {
         return dialogues;
     }
 
     /**
-     * @param dialogues
+     * @param dialogues a list of dialogues.
      */
     public void setDialogues(List<Dialogue> dialogues) {
         this.dialogues = dialogues;
     }
 
     /**
-     * @return
+     * @return a list of texts for the actor.
      */
     public List<Text> getTexts() {
         return texts;
     }
 
     /**
-     * @param texts
+     * @param texts a list of texts for the actor.
      */
     public void setTexts(List<Text> texts) {
         this.texts = texts;
     }
 
     /**
-     * @return
+     * @return true if the actor is visible, otherwise false.
      */
     public boolean isVisible() {
         return visible;
     }
 
     /**
-     * @param visible
+     * @param visible true if the actor is visible, otherwise false.
      */
     public void setVisible(boolean visible) {
         this.visible = visible;
     }
 
     /**
-     * @return
+     * @return true if the Actor is talking, otherwise false.
      */
     public boolean isTalking() {
         return talking;
     }
 
     /**
-     * @param talking
+     * @param talking true if the Actor is talking, otherwise false.
      */
     public void setTalking(boolean talking) {
         this.talking = talking;
     }
 
     /**
-     * @return
+     * @return true if the Actor can be taken, otherwise false.
      */
     public boolean isTakeable() {
         return takeable;
     }
 
     /**
-     * @param takeable
+     * @param takeable true if the Actor can be taken, otherwise false.
      */
     public void setTakeable(boolean takeable) {
         this.takeable = takeable;
     }
 
     /**
-     * @return
+     * @return true if the Actor is taken, otherwise false.
      */
     public boolean isTaken() {
         return taken;
     }
 
     /**
-     * @param taken
+     * @param taken true if the Actor is taken, otherwise false.
      */
     public void setTaken(boolean taken) {
         this.taken = taken;
     }
 
     /**
-     * @return
+     * @return the current dialogue of the actor.
      */
     public long getCurrentDialogueId() {
         return currentDialogueId;
     }
 
     /**
-     * @param currentDialogueId
+     * @param currentDialogueId the id of the current dialogue.
      */
     public void setCurrentDialogueId(long currentDialogueId) {
         this.currentDialogueId = currentDialogueId;
     }
 
     /**
-     * @return
+     * @return the font used to display the dialogue.
      */
     public Font getDialogueFont() {
         return dialogueFont;
     }
 
     /**
-     * @param dialogueFont
+     * @param dialogueFont the font used to display the dialogue.
      */
     public void setDialogueFont(Font dialogueFont) {
         this.dialogueFont = dialogueFont;
     }
 
+    /**
+     * @return the actor's name.
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * @param name the actor's name.
+     */
     public void setName(String name) {
         this.name = name;
     }
