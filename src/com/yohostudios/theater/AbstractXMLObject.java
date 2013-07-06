@@ -219,24 +219,24 @@ public abstract class AbstractXMLObject {
         return false;
     }
 
-    /**
-     * 
+    /*
      * @param name the string name of the Property
      * @param operatorType the operator type of the Property
      * @param comparisonValue the comparison value of the Property
      * @return true if the value of the attribute referred by attributeName
-     *         compares with the comparisonValue, using the operatorType
+     * compares with the comparisonValue, using the operatorType
+     * 
+     * public final boolean compareProperty(String name, String operatorType,
+     * String comparisonValue) {
+     * 
+     * // TODO Implement this
+     * 
+     * return false;
+     * 
+     * }
      */
-    public final boolean compareProperty(String name, String operatorType,
-            String comparisonValue) {
-
-        // for (Pro)
-        int i = 0; // TODO Implement this
-
-        return false;
-
-    }
-
+    
+    
     /**
      * Searches for a Property by "propertyName" in AbstractXMLObject's
      * properties and if found, assigns it an "attributeValue".

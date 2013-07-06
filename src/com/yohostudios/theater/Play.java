@@ -55,7 +55,7 @@ public class Play {
     public final void addScene(String resourceFileName) {
 
         Scene scene = new Scene(resourceFileName); // Create and load a scene.
-      
+
         currentSceneId = scene.getId();
         scenes.add(scene);
 
@@ -111,7 +111,7 @@ public class Play {
 
     /**
      * To prepare the stage to show the new canvas
-     * @param canvas the new canvas 
+     * @param canvas the new canvas
      */
     public void render(Canvas canvas) {
         // TODO implement this
@@ -136,25 +136,28 @@ public class Play {
     }
 
     /**
-     * @param actors
+     * TODO: rename this method to make it explicit.
+     * Handles events triggered by touch.
+     * @param actors those accessible by 
      * @return
      */
     public boolean validateTouchTriggers(List<Actor> actors) {
-        // TODO implement this
+        // TODO implement this and use input coordinates to match an actor.
         return false;
     }
 
     /**
-     * @param triggerType
-     * @param actor
+     * Look for a specific Actor's Trigger and execute its Actions
+     * @param triggerType is the trigger to look for. (ie: touch, hold, drag)
+     * @param actor an Actor that gets triggered.
      */
     public void validateTrigger(String triggerType, Actor actor) {
         // TODO implement this
     }
 
     /**
-     * @param action
-     * @return
+     * @param action contains the conditions to validate.
+     * @return true if all conditions are true, otherwise false.
      */
     public boolean validateActionConditions(Action action) {
         return false;
@@ -283,7 +286,7 @@ public class Play {
         this.nextSceneId = nextSceneId;
     }
 
-    /** 
+    /**
      * @return access values Scene Change Needed
      */
     public boolean isSceneChangeNeeded() {
