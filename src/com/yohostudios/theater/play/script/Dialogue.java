@@ -1,6 +1,5 @@
 package com.yohostudios.theater.play.script;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.yohostudios.theater.AbstractXMLObject;

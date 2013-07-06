@@ -34,12 +34,12 @@ public abstract class AbstractXMLObject {
    
     /**
      * Parses an xml string, constructs objects that match the provided tag and
-     * adds them to a List of type T.
+     * returns them as a List of type T.
      * @param <T> is the template for the class type.
-     * @param objectList a List of objects that extend AbstractXMLObject.
      * @param object the Class of object which will be instantiated and added to
      *            the List.
      * @param xmlString the XML data
+     * @return a list of objects of type T.
      */
     public final <T extends AbstractXMLObject> List<T> getObjectListFromXML(
             Class<T> object, String xmlString) {
