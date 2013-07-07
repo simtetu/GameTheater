@@ -1,0 +1,34 @@
+<Scene mouseVisible="false" fadeIn="true" fadeOut="true">
+
+    <Actor name="Yoho Studios Logo" id="1000" x="244" y="200" z="0"
+        width="230" height="127" currentFrame="0" sequenceIndex="0"
+        animated="false" animFrameDelay="0" currentDialogueId="0"
+        animDelayCounter="0" loopAnimation="false" talking="false"
+        visible="true">
+        <Sprite id="10000" width="230" height="127" alpha="255"
+            frames="1" resourceId="139">
+        </Sprite>
+    </Actor>
+
+    <Actor name="Empty Click zone for ChangeRoom" id="1001" x="0"
+        y="0" z="1" width="800" height="600" currentFrame="0"
+        sequenceIndex="0" animated="false" animFrameDelay="0"
+        currentDialogueId="0" animDelayCounter="0" loopAnimation="false"
+        talking="false" visible="true">
+        <ActionTrigger id="2" type="onClick" params="0,0,800,600">
+            <Action id="1"
+                type="modifyAttribute,modifyAttribute,changeRoom"
+                targetObjectId="3001,3001,2000" targetObjectType="Actor,Actor,Actor"
+                paramName="currentFrame,visible,room" paramValue="0,true,1005"
+                paramOperator="+=,=,="></Action>
+        </ActionTrigger>
+        <ActionTrigger Id="3" type="onTimer" params="false,false,2500,2500">
+            <Action id="1"
+                type="modifyAttribute,modifyAttribute,changeRoom"
+                targetObjectId="3001,3001,2000" targetObjectType="Actor,Actor,Actor"
+                paramName="currentFrame,visible,room" paramValue="0,true,1005"
+                paramOperator="+=,=,="></Action>
+        </ActionTrigger>
+    </Actor>
+
+</Scene>

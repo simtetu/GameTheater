@@ -4,8 +4,12 @@
     loopAnimation="false" visible="false">
     <Sprite id="1" width="2" height="3" alpha="4" frames="5"
         resourceId="6"></Sprite>
-    <Sound></Sound>
-    <Sound></Sound>
+    <Sound id="1" looping="true" resourceId="2" volume="1.25"
+        pitch="1">
+    </Sound>
+    <Sound id="2" looping="true" resourceId="3" volume="1.25"
+        pitch="1">
+    </Sound>
     <Text id="1" x="2" y="3" content="125.00" format="currency"
         fontFrames="4" fontResourceId="5" fontResourceWidth="6"
         fontResourceHeight="7"></Text>
@@ -13,6 +17,7 @@
         <Sentence id="1" content="Hello"></Sentence>
         <Sentence id="2" content="World"></Sentence>
     </Dialogue>
-    <Trigger></Trigger>
-    <Property></Property>
+    <ActionTrigger id="1" type="onTouch" params="foobar">
+    </ActionTrigger>
+    <Property id="1" name="age" value="10"></Property>
 </Actor>

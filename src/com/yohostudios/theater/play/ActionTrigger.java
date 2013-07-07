@@ -30,6 +30,7 @@ public class ActionTrigger extends AbstractXMLObject {
      */
     @Override
     public void initFromXML(String xmlString) throws XMLParsingException {
+
         setId(Long.parseLong(getValueFromParam(xmlString, "id")));
         setType(getValueFromParam(xmlString, "type"));
         setParams(getValueFromParam(xmlString, "params"));
