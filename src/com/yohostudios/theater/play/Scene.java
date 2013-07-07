@@ -174,18 +174,33 @@ public class Scene extends AbstractXMLObject {
         this.visible = visible;
     }
 
+    /**
+     * @return true if the scene is opening with an effect, otherwise false.
+     */
     public boolean isOpeningWithEffect() {
         return openingWithEffect;
     }
 
+    /**
+     * @param openingWithEffect true if the scene is opening with an effect,
+     *            otherwise false.
+     */
     public void setOpeningWithEffect(boolean openingWithEffect) {
         this.openingWithEffect = openingWithEffect;
     }
 
+    /**
+     * 
+     * @return true if the scene is closing with an effect, otherwise false.
+     */
     public boolean isClosingWithEffect() {
         return closingWithEffect;
     }
 
+    /***
+     * @param closingWithEffect true if the scene is closing with an effect,
+     *            otherwise false.
+     */
     public void setClosingWithEffect(boolean closingWithEffect) {
         this.closingWithEffect = closingWithEffect;
     }
