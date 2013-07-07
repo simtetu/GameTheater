@@ -1,0 +1,6 @@
+<Trigger id="1" type="onTouch" params="foobar">
+    <Action id="2" type="changeScene" targetObjectId="1001"
+        targetObjectType="Actor" paramName="room" paramValue="1300"
+        paramOperator="=">
+    </Action>
+</Trigger>

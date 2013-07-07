@@ -1,6 +1,7 @@
 package com.yohostudios.theater.play.script;
 
 import com.yohostudios.theater.AbstractXMLObject;
+import com.yohostudios.theater.exception.XMLParsingException;
 
 /**
  * @author simon
@@ -8,11 +9,11 @@ import com.yohostudios.theater.AbstractXMLObject;
  */
 public class Sound extends AbstractXMLObject {
 
-    /** Volume of Sound*/
+    /** Volume of Sound */
     private float volume;
-    /** Pitch of Sound*/
+    /** Pitch of Sound */
     private float pitch;
-    /** Resource Id of Sound*/
+    /** Resource Id of Sound */
     private int resourceId;
     /** identify whether the sound will be in loop or not */
     private boolean looping;
@@ -45,19 +46,28 @@ public class Sound extends AbstractXMLObject {
     /*
      * (non-Javadoc)
      * 
-     * @see com.yohostudios.theater.AbstractXMLObject#initFromXML(java.lang.String)
+     * @see
+     * com.yohostudios.theater.AbstractXMLObject#initFromXML(java.lang.String)
      */
     @Override
-    public void initFromXML(String xmlString) {
-        // TODO Auto-generated method stub
+    public void initFromXML(String xmlString) throws XMLParsingException {
+
+        setId(Long.parseLong(getValueFromParam(xmlString, "id")));
+        setVolume(Float.parseFloat(getValueFromParam(xmlString, "volume")));
+        setPitch(Float.parseFloat(getValueFromParam(xmlString, "pitch")));
+        setResourceId(Integer.parseInt(getValueFromParam(xmlString,
+                "resourceId")));
+        setLooping(Boolean
+                .parseBoolean(getValueFromParam(xmlString, "looping")));
 
     }
 
     /*
      * (non-Javadoc)
      * 
-     * @see com.yohostudios.theater.AbstractXMLObject#modifyAttribute(java.lang.String,
-     * java.lang.String)
+     * @see
+     * com.yohostudios.theater.AbstractXMLObject#modifyAttribute(java.lang.String
+     * , java.lang.String)
      */
     @Override
     public void modifyAttribute(String attributeName, String attributeValue) {
@@ -68,7 +78,8 @@ public class Sound extends AbstractXMLObject {
     /*
      * (non-Javadoc)
      * 
-     * @see com.yohostudios.theater.AbstractXMLObject#getAttribute(java.lang.String)
+     * @see
+     * com.yohostudios.theater.AbstractXMLObject#getAttribute(java.lang.String)
      */
     @Override
     public String getAttribute(String attributeName) {
@@ -79,7 +90,8 @@ public class Sound extends AbstractXMLObject {
     /*
      * (non-Javadoc)
      * 
-     * @see com.yohostudios.theater.AbstractXMLObject#callMethod(java.lang.String,
+     * @see
+     * com.yohostudios.theater.AbstractXMLObject#callMethod(java.lang.String,
      * java.lang.String)
      */
     @Override

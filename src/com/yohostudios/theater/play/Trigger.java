@@ -3,6 +3,7 @@ package com.yohostudios.theater.play;
 import java.util.List;
 
 import com.yohostudios.theater.AbstractXMLObject;
+import com.yohostudios.theater.exception.XMLParsingException;
 import com.yohostudios.theater.util.Timer;
 
 /**
@@ -11,31 +12,37 @@ import com.yohostudios.theater.util.Timer;
  */
 public class Trigger extends AbstractXMLObject {
 
-    /** Type of Trigger*/
+    /** Type of Trigger */
     private String type;
-    /** params of Trigger*/
+    /** params of Trigger */
     private String params;
-    /** List Actions of Trigger*/
+    /** List Actions of Trigger */
     private List<Action> actions;
-    /** Timer of Trigger*/
+    /** Timer of Trigger */
     private Timer timer;
 
     /*
      * (non-Javadoc)
      * 
-     * @see com.yohostudios.theater.AbstractXMLObject#initFromXML(java.lang.String)
+     * @see
+     * com.yohostudios.theater.AbstractXMLObject#initFromXML(java.lang.String)
      */
     @Override
-    public void initFromXML(String xmlString) {
-        // TODO Auto-generated method stub
+    public void initFromXML(String xmlString) throws XMLParsingException {
+        setId(Long.parseLong(getValueFromParam(xmlString, "id")));
+        setType(getValueFromParam(xmlString, "type"));
+        setParams(getValueFromParam(xmlString, "params"));
+
+        setActions(getObjectListFromXML(Action.class, xmlString));
 
     }
 
     /*
      * (non-Javadoc)
      * 
-     * @see com.yohostudios.theater.AbstractXMLObject#modifyAttribute(java.lang.String,
-     * java.lang.String)
+     * @see
+     * com.yohostudios.theater.AbstractXMLObject#modifyAttribute(java.lang.String
+     * , java.lang.String)
      */
     @Override
     public void modifyAttribute(String attributeName, String attributeValue) {
@@ -46,7 +53,8 @@ public class Trigger extends AbstractXMLObject {
     /*
      * (non-Javadoc)
      * 
-     * @see com.yohostudios.theater.AbstractXMLObject#getAttribute(java.lang.String)
+     * @see
+     * com.yohostudios.theater.AbstractXMLObject#getAttribute(java.lang.String)
      */
     @Override
     public String getAttribute(String attributeName) {
@@ -57,7 +65,8 @@ public class Trigger extends AbstractXMLObject {
     /*
      * (non-Javadoc)
      * 
-     * @see com.yohostudios.theater.AbstractXMLObject#callMethod(java.lang.String,
+     * @see
+     * com.yohostudios.theater.AbstractXMLObject#callMethod(java.lang.String,
      * java.lang.String)
      */
     @Override
