@@ -10,16 +10,16 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.yohostudios.theater.exception.XMLParsingException;
-import com.yohostudios.theater.play.Trigger;
+import com.yohostudios.theater.play.ActionTrigger;
 import com.yohostudios.theater.util.FileUtils;
 
 /**
  * @author simon
  * 
  */
-public class TestTrigger {
+public class TestActionTrigger {
 
-    private Trigger trigger;
+    private ActionTrigger actionTrigger;
     private String xmlString;
 
     /**
@@ -29,33 +29,33 @@ public class TestTrigger {
     @Before
     public void setUp() throws Exception {
 
-        trigger = new Trigger();
+        actionTrigger = new ActionTrigger();
         xmlString = FileUtils
-                .getFileContentAsString("test/data/TestTrigger.xml");
+                .getFileContentAsString("test/data/TestActionTrigger.xml");
 
     }
 
     /**
      * Test method for
-     * {@link com.yohostudios.theater.play.Trigger#initFromXML(java.lang.String)}
+     * {@link com.yohostudios.theater.play.ActionTrigger#initFromXML(java.lang.String)}
      * .
      * @throws XMLParsingException if an error occurred while invoking
-     *             initFromXML on an Trigger.
+     *             initFromXML on an ActionTrigger.
      */
     @Test
     public final void testInitFromXML() throws XMLParsingException {
 
-        trigger.initFromXML(xmlString);
-        assertEquals("Testing trigger id", 1, trigger.getId());
-        assertEquals("Testing trigger type", "onTouch", trigger.getType());
-        assertEquals("Testing trigger params", "foobar", trigger.getParams());
-        assertEquals("Testing the trigger's list of action size", 1, trigger
+        actionTrigger.initFromXML(xmlString);
+        assertEquals("Testing actionTrigger id", 1, actionTrigger.getId());
+        assertEquals("Testing actionTrigger type", "onTouch", actionTrigger.getType());
+        assertEquals("Testing actionTrigger params", "foobar", actionTrigger.getParams());
+        assertEquals("Testing the actionTrigger's list of action size", 1, actionTrigger
                 .getActions().size());
     }
 
     /**
      * Test method for
-     * {@link com.yohostudios.theater.play.Trigger#modifyAttribute(java.lang.String, java.lang.String)}
+     * {@link com.yohostudios.theater.play.ActionTrigger#modifyAttribute(java.lang.String, java.lang.String)}
      * .
      */
     @Test
@@ -65,7 +65,7 @@ public class TestTrigger {
 
     /**
      * Test method for
-     * {@link com.yohostudios.theater.play.Trigger#getAttribute(java.lang.String)}
+     * {@link com.yohostudios.theater.play.ActionTrigger#getAttribute(java.lang.String)}
      * .
      */
     @Test
@@ -75,7 +75,7 @@ public class TestTrigger {
 
     /**
      * Test method for
-     * {@link com.yohostudios.theater.play.Trigger#callMethod(java.lang.String, java.lang.String)}
+     * {@link com.yohostudios.theater.play.ActionTrigger#callMethod(java.lang.String, java.lang.String)}
      * .
      */
     @Test
@@ -85,7 +85,7 @@ public class TestTrigger {
 
     /**
      * Test method for
-     * {@link com.yohostudios.theater.play.Trigger#compareProperty(java.lang.String, java.lang.String, java.lang.String)}
+     * {@link com.yohostudios.theater.play.ActionTrigger#compareProperty(java.lang.String, java.lang.String, java.lang.String)}
      * .
      */
     @Test
@@ -95,7 +95,7 @@ public class TestTrigger {
 
     /**
      * Test method for
-     * {@link com.yohostudios.theater.play.Trigger#freeResources()}.
+     * {@link com.yohostudios.theater.play.ActionTrigger#freeResources()}.
      */
     @Test
     public final void testFreeResources() {

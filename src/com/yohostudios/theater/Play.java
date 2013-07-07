@@ -150,7 +150,7 @@ public class Play {
     }
 
     /**
-     * Look for a specific Actor's Trigger and execute its Actions
+     * Look for a specific Actor's ActionTrigger and execute its Actions
      * @param triggerType is the trigger to look for. (ie: touch, hold, drag)
      * @param actor an Actor that gets triggered.
      */

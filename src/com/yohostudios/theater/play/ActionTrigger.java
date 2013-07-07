@@ -7,18 +7,19 @@ import com.yohostudios.theater.exception.XMLParsingException;
 import com.yohostudios.theater.util.Timer;
 
 /**
+ * Triggers actions, provided that the actions' conditions are all met.
  * @author simon
  * 
  */
-public class Trigger extends AbstractXMLObject {
+public class ActionTrigger extends AbstractXMLObject {
 
-    /** Type of Trigger */
+    /** Type of ActionTrigger */
     private String type;
-    /** params of Trigger */
+    /** params of ActionTrigger */
     private String params;
-    /** List Actions of Trigger */
+    /** List Actions of ActionTrigger */
     private List<Action> actions;
-    /** Timer of Trigger */
+    /** Timer of ActionTrigger */
     private Timer timer;
 
     /*
@@ -91,56 +92,56 @@ public class Trigger extends AbstractXMLObject {
     // ////////////////////////////////////////////////////////////////////////
 
     /**
-     * @return access values Type of Trigger
+     * @return access values Type of ActionTrigger
      */
     public String getType() {
         return type;
     }
 
     /**
-     * @param type taint or change Type of Trigger
+     * @param type taint or change Type of ActionTrigger
      */
     public void setType(String type) {
         this.type = type;
     }
 
     /**
-     * @return access values Params of Trigger
+     * @return access values Params of ActionTrigger
      */
     public String getParams() {
         return params;
     }
 
     /**
-     * @param params taint or change Params of Trigger
+     * @param params taint or change Params of ActionTrigger
      */
     public void setParams(String params) {
         this.params = params;
     }
 
     /**
-     * @return access values List Actions of Trigger
+     * @return access values List Actions of ActionTrigger
      */
     public List<Action> getActions() {
         return actions;
     }
 
     /**
-     * @param actions taint or change List Actions of Trigger
+     * @param actions taint or change List Actions of ActionTrigger
      */
     public void setActions(List<Action> actions) {
         this.actions = actions;
     }
 
     /**
-     * @return access values Timer of Trigger
+     * @return access values Timer of ActionTrigger
      */
     public Timer getTimer() {
         return timer;
     }
 
     /**
-     * @param timer taint or change Timer of Trigger
+     * @param timer taint or change Timer of ActionTrigger
      */
     public void setTimer(Timer timer) {
         this.timer = timer;

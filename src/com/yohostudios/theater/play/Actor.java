@@ -72,8 +72,8 @@ public class Actor extends AbstractXMLObject {
     private List<Sprite> sprites;
     /** sounds associated with the actor. */
     private List<Sound> sounds;
-    /** triggers associated with the actor. */
-    private List<Trigger> triggers;
+    /** actionTriggers associated with the actor. */
+    private List<ActionTrigger> actionTriggers;
     /** dialogues associated with the actor. */
     private List<Dialogue> dialogues;
     /** text written on the actor. */
@@ -145,7 +145,7 @@ public class Actor extends AbstractXMLObject {
         setSprites(getObjectListFromXML(Sprite.class, xmlString));
         setSounds(getObjectListFromXML(Sound.class, xmlString));
         setTexts(getObjectListFromXML(Text.class, xmlString));
-        setTriggers(getObjectListFromXML(Trigger.class,xmlString));
+        setActionTriggers(getObjectListFromXML(ActionTrigger.class, xmlString));
         setDialogues(getObjectListFromXML(Dialogue.class, xmlString));
         setProperties(getObjectListFromXML(Property.class, xmlString));
 
@@ -473,15 +473,16 @@ public class Actor extends AbstractXMLObject {
     /**
      * @return a list of triggers that would have the actor take action.
      */
-    public List<Trigger> getTriggers() {
-        return triggers;
+    public List<ActionTrigger> getActionTriggers() {
+        return actionTriggers;
     }
 
     /**
-     * @param triggers a list of triggers that would have the actor take action.
+     * @param actionTriggers a list of triggers that would have the actor take
+     *            action.
      */
-    public void setTriggers(List<Trigger> triggers) {
-        this.triggers = triggers;
+    public void setActionTriggers(List<ActionTrigger> actionTriggers) {
+        this.actionTriggers = actionTriggers;
     }
 
     /**

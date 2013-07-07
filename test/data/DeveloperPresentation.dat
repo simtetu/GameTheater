@@ -10,14 +10,14 @@
   <Actor name="Empty Click zone for ChangeRoom" id="1001" x="0" y="0" z="1" width="800" height="600" 
          currentFrame="0" sequenceIndex="0" animated="false" animFrameDelay="0" currentDialogueId="0"
          animDelayCounter="0" loopAnimation="false" talking="false" visible="true">
-    <Trigger id="2" type="onClick" params="0,0,800,600">
+    <ActionTrigger id="2" type="onClick" params="0,0,800,600">
       <Behavior id="3" type="changeRoom" targetObjectId="1001" targetObjectType="Actor" paramName="room" paramValue="1300">
       </Behavior>
-    </Trigger>
-    <Trigger Id="3" type="onTimer" params="false,false,2500,2500">
+    </ActionTrigger>
+    <ActionTrigger Id="3" type="onTimer" params="false,false,2500,2500">
       <Behavior Id="3" type="changeRoom" targetObjectId="1001" targetObjectType="Actor" paramName="room" paramValue="1300">
       </Behavior>
-    </Trigger>
+    </ActionTrigger>
   </Actor>
   
 </Scene>

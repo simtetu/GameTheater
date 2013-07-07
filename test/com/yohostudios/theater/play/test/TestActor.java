@@ -66,7 +66,7 @@ public class TestActor {
         assertEquals(2, actor.getSounds().size());
         assertEquals(1, actor.getTexts().size());
         assertEquals(1, actor.getDialogues().size());
-        assertEquals(1, actor.getTriggers().size());
+        assertEquals(1, actor.getActionTriggers().size());
         assertEquals(1, actor.getProperties().size());
     }
 

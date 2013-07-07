@@ -7,6 +7,9 @@ import com.yohostudios.theater.exception.XMLParsingException;
 import com.yohostudios.theater.util.Operator;
 
 /**
+ * An action modifies values of an Actor's properties, but only if all its
+ * conditions are met.
+ * 
  * @author simon
  * 
  */
