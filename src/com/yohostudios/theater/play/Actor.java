@@ -4,7 +4,7 @@ import java.util.Comparator;
 import java.util.List;
 
 import com.yohostudios.theater.AbstractXMLObject;
-import com.yohostudios.theater.exception.XMLTagNotFoundException;
+import com.yohostudios.theater.exception.XMLParsingException;
 import com.yohostudios.theater.graphics.Font;
 import com.yohostudios.theater.graphics.Sprite;
 import com.yohostudios.theater.graphics.Text;
@@ -111,8 +111,7 @@ public class Actor extends AbstractXMLObject {
      * com.yohostudios.theater.AbstractXMLObject#initFromXML(java.lang.String)
      */
     @Override
-    public void initFromXML(String xmlString) throws NumberFormatException,
-            XMLTagNotFoundException {
+    public void initFromXML(String xmlString) throws XMLParsingException {
 
         setXmlData(xmlString);
 

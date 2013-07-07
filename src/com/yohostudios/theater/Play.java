@@ -59,7 +59,7 @@ public class Play {
         currentSceneId = scene.getId();
         scenes.add(scene);
 
-        if (scene.isFadingIn()) {
+        if (scene.isOpeningWithEffect()) {
             // TODO implement from opaque to
             // transparent in a certain amount of
             // steps.

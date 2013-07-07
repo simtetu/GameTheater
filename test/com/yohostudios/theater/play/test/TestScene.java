@@ -10,6 +10,7 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.yohostudios.theater.exception.XMLParsingException;
 import com.yohostudios.theater.play.Actor;
 import com.yohostudios.theater.play.Scene;
 import com.yohostudios.theater.util.FileUtils;
@@ -46,11 +47,20 @@ public class TestScene {
     /**
      * Test method for
      * {@link com.yohostudios.theater.play.Scene#initFromXML(java.lang.String)}.
+     * @throws XMLParsingException if an error occurred while invoking
+     *             initFromXML on a Scene.
      */
     @Test
-    public final void testInitFromXML() {
+    public final void testInitFromXML() throws XMLParsingException {
         scene.initFromXML(xmlString);
-        assertEquals(1, scene.getActors().size());
+        assertEquals("Testing scene id", 1, scene.getId());
+        assertEquals("Testing scene is visible", true, scene.isVisible());
+        assertEquals("Testing scene is opening with effect", true,
+                scene.isOpeningWithEffect());
+        assertEquals("Testing scene is closing with effect", true,
+                scene.isClosingWithEffect());
+        assertEquals("Testing the scene's actor list size", 1, scene
+                .getActors().size());
     }
 
     /**
@@ -112,7 +122,8 @@ public class TestScene {
     }
 
     /**
-     * Test method for {@link com.yohostudios.theater.play.Scene#loadScene(int)}.
+     * Test method for {@link com.yohostudios.theater.play.Scene#loadScene(int)}
+     * .
      */
     @Test
     public final void testLoadRoom() {

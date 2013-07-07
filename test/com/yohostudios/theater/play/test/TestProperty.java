@@ -1,14 +1,22 @@
 package com.yohostudios.theater.play.test;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
 import org.junit.Before;
 import org.junit.Test;
 
+import com.yohostudios.theater.exception.XMLParsingException;
+import com.yohostudios.theater.play.Property;
+import com.yohostudios.theater.util.FileUtils;
+
 /**
  * @author simon
  */
 public class TestProperty {
+
+    private Property property;
+    private String xmlString;
 
     /**
      * @throws java.lang.Exception
@@ -16,16 +24,25 @@ public class TestProperty {
      */
     @Before
     public void setUp() throws Exception {
+        property = new Property();
+        xmlString = FileUtils
+                .getFileContentAsString("test/data/TestProperty.xml");
     }
 
     /**
      * Test method for
      * {@link com.yohostudios.theater.play.Property#initFromXML(java.lang.String)}
      * .
+     * @throws XMLParsingException if an error occurred while invoking
+     *             initFromXML on a Condition.
      */
     @Test
-    public final void testInitFromXML() {
-        fail("Not yet implemented"); // TODO
+    public final void testInitFromXML() throws XMLParsingException {
+
+        property.initFromXML(xmlString);
+        assertEquals("Testing the id", 1, property.getId());
+        assertEquals("Testing the name", "age", property.getName());
+        assertEquals("Testing the value", "10", property.getValue());
     }
 
     /**

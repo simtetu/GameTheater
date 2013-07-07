@@ -11,7 +11,7 @@ import static org.junit.Assert.fail;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.yohostudios.theater.exception.XMLTagNotFoundException;
+import com.yohostudios.theater.exception.XMLParsingException;
 import com.yohostudios.theater.play.Actor;
 import com.yohostudios.theater.util.FileUtils;
 
@@ -38,11 +38,11 @@ public class TestActor {
     /**
      * Test method for
      * {@link com.yohostudios.theater.play.Actor#initFromXML(java.lang.String)}.
-     * @throws XMLTagNotFoundException 
-     * @throws NumberFormatException 
+     * @throws XMLParsingException if an error occurred while invoking
+     *             initFromXML on an Actor.
      */
     @Test
-    public final void testInitFromXML() throws NumberFormatException, XMLTagNotFoundException {
+    public final void testInitFromXML() throws XMLParsingException {
 
         actor.initFromXML(xmlString);
         assertEquals("Widget", actor.getName());

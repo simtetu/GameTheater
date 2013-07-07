@@ -1,4 +1,5 @@
-<Scene>
+<Scene id="1" visible="true" openingWithEffect="true"
+    closingWithEffect="true">
     <Actor name="Widget" id="1" x="2" y="3" z="4" width="5"
         height="6" currentFrame="7" sequenceIndex="8" animated="true"
         animFrameDelay="9" currentDialogueId="10" talking="false"
@@ -15,6 +16,6 @@
             <Sentence id="2" content="World"></Sentence>
         </Dialogue>
         <Trigger></Trigger>
-        <Property></Property>
+        <Property id="1" name="age" value="10"></Property>
     </Actor>
 </Scene>

@@ -1,6 +1,7 @@
 package com.yohostudios.theater.play;
 
 import com.yohostudios.theater.AbstractXMLObject;
+import com.yohostudios.theater.exception.XMLParsingException;
 
 /**
  * @author simon
@@ -8,27 +9,31 @@ import com.yohostudios.theater.AbstractXMLObject;
  */
 public class Property extends AbstractXMLObject {
 
-    /** ID of Property*/
+    /** name of Property */
     private String name;
-    /** Value of Property*/
+    /** value of Property */
     private String value;
 
     /*
      * (non-Javadoc)
      * 
-     * @see com.yohostudios.theater.AbstractXMLObject#initFromXML(java.lang.String)
+     * @see
+     * com.yohostudios.theater.AbstractXMLObject#initFromXML(java.lang.String)
      */
     @Override
-    public void initFromXML(String xmlString) {
-        // TODO Auto-generated method stub
-
+    public void initFromXML(String xmlString) throws XMLParsingException {
+        
+        setId(Long.parseLong(getValueFromParam(xmlString, "id")));
+        setName(getValueFromParam(xmlString, "name"));
+        setValue(getValueFromParam(xmlString, "value"));
     }
 
     /*
      * (non-Javadoc)
      * 
-     * @see com.yohostudios.theater.AbstractXMLObject#modifyAttribute(java.lang.String,
-     * java.lang.String)
+     * @see
+     * com.yohostudios.theater.AbstractXMLObject#modifyAttribute(java.lang.String
+     * , java.lang.String)
      */
     @Override
     public void modifyAttribute(String attributeName, String attributeValue) {
@@ -39,7 +44,8 @@ public class Property extends AbstractXMLObject {
     /*
      * (non-Javadoc)
      * 
-     * @see com.yohostudios.theater.AbstractXMLObject#getAttribute(java.lang.String)
+     * @see
+     * com.yohostudios.theater.AbstractXMLObject#getAttribute(java.lang.String)
      */
     @Override
     public String getAttribute(String attributeName) {
@@ -50,7 +56,8 @@ public class Property extends AbstractXMLObject {
     /*
      * (non-Javadoc)
      * 
-     * @see com.yohostudios.theater.AbstractXMLObject#callMethod(java.lang.String,
+     * @see
+     * com.yohostudios.theater.AbstractXMLObject#callMethod(java.lang.String,
      * java.lang.String)
      */
     @Override

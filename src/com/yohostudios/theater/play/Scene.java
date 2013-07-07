@@ -6,6 +6,7 @@ import java.util.List;
 import android.graphics.Canvas;
 
 import com.yohostudios.theater.AbstractXMLObject;
+import com.yohostudios.theater.exception.XMLParsingException;
 import com.yohostudios.theater.util.FileUtils;
 
 /**
@@ -18,12 +19,12 @@ public class Scene extends AbstractXMLObject {
 
     /** List of Actor for the Scene */
     private List<Actor> actors;
-    /** if the actor is visible or not */
+    /** is the scene visible or not */
     private boolean visible;
-    /** If the Object is in the Scene */
-    private boolean fadingIn;
-    /** If the Object is out the Scene */
-    private boolean fadingOut;
+    /** should the scene open with an effect */
+    private boolean openingWithEffect;
+    /** should the scene close with an effect */
+    private boolean closingWithEffect;
 
     /**
      * Default constructor.
@@ -80,7 +81,15 @@ public class Scene extends AbstractXMLObject {
      * com.yohostudios.theater.AbstractXMLObject#initFromXML(java.lang.String)
      */
     @Override
-    public void initFromXML(String xmlString) {
+    public void initFromXML(String xmlString) throws XMLParsingException {
+
+        setId(Long.parseLong(getValueFromParam(xmlString, "id")));
+        setVisible(Boolean
+                .parseBoolean(getValueFromParam(xmlString, "visible")));
+        setOpeningWithEffect(Boolean.parseBoolean(getValueFromParam(xmlString,
+                "openingWithEffect")));
+        setClosingWithEffect(Boolean.parseBoolean(getValueFromParam(xmlString,
+                "closingWithEffect")));
         setActors(getObjectListFromXML(Actor.class, xmlString));
     }
 
@@ -165,32 +174,20 @@ public class Scene extends AbstractXMLObject {
         this.visible = visible;
     }
 
-    /**
-     * @return access values If The Actors is in the Scene
-     */
-    public boolean isFadingIn() {
-        return fadingIn;
+    public boolean isOpeningWithEffect() {
+        return openingWithEffect;
     }
 
-    /**
-     * @param fadingIn taint or change If the Actors is in the Scene
-     */
-    public void setFadingIn(boolean fadingIn) {
-        this.fadingIn = fadingIn;
+    public void setOpeningWithEffect(boolean openingWithEffect) {
+        this.openingWithEffect = openingWithEffect;
     }
 
-    /**
-     * @return access values If The Actors is out the Scene
-     */
-    public boolean isFadingOut() {
-        return fadingOut;
+    public boolean isClosingWithEffect() {
+        return closingWithEffect;
     }
 
-    /**
-     * @param fadingOut taint or change If the Actors is out the Scene
-     */
-    public void setFadingOut(boolean fadingOut) {
-        this.fadingOut = fadingOut;
+    public void setClosingWithEffect(boolean closingWithEffect) {
+        this.closingWithEffect = closingWithEffect;
     }
 
 }
